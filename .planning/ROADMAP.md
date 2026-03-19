@@ -29,12 +29,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. User can search saved sessions by name or hostname and see filtered results instantly
   4. User can import sessions from a MobaXterm .mxtsessions file and export all sessions to a portable file
   5. App installs from a DMG on a clean Mac (macOS 14+), launches without Gatekeeper warnings, and spawns a child process without sandbox errors (validates Hardened Runtime + code signing)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] 01-01-PLAN.md — Xcode project, data models (SessionDefinition/SessionFolder/ConnectionProtocol), JSON persistence actor, Wave 0 test scaffolding
+- [ ] 01-02-PLAN.md — App UI shell: NavigationSplitView, sidebar folder tree with drag-and-drop, session create/edit modal with Wizard mode, real-time search, Preferences
+- [ ] 01-03-PLAN.md — MobaXterm .mxtsessions import wizard (tree selection, conflict resolution), three export formats, and DMG/notarization build pipeline
 
 ### Phase 2: SSH Terminal and Credentials
 **Goal**: Users can securely connect to SSH hosts in an embedded terminal with tabbed sessions, using passwords from Keychain or SSH keys from an encrypted vault
@@ -88,7 +88,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. App Foundation and Session Management | 0/3 | Not started | - |
+| 1. App Foundation and Session Management | 0/3 | Ready to execute | - |
 | 2. SSH Terminal and Credentials | 0/3 | Not started | - |
 | 3. SFTP File Browser | 0/2 | Not started | - |
 | 4. RDP, VNC, and X11 Forwarding | 0/2 | Not started | - |
