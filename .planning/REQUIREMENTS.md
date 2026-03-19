@@ -128,27 +128,27 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TERM-03 | Phase 2 | Pending |
 | TERM-04 | Phase 2 | Pending |
 | TERM-05 | Phase 2 | Pending |
-| CRED-01 | Phase 3 | Pending |
-| CRED-02 | Phase 3 | Pending |
-| CRED-03 | Phase 3 | Pending |
-| CRED-04 | Phase 3 | Pending |
-| SFTP-01 | Phase 4 | Pending |
-| SFTP-02 | Phase 4 | Pending |
-| SFTP-03 | Phase 4 | Pending |
-| SFTP-04 | Phase 4 | Pending |
-| SFTP-05 | Phase 4 | Pending |
-| RDP-01 | Phase 5 | Pending |
-| RDP-02 | Phase 5 | Pending |
-| VNC-01 | Phase 5 | Pending |
-| VNC-02 | Phase 5 | Pending |
-| X11-01 | Phase 5 | Pending |
-| X11-02 | Phase 5 | Pending |
+| CRED-01 | Phase 2 | Pending |
+| CRED-02 | Phase 2 | Pending |
+| CRED-03 | Phase 2 | Pending |
+| CRED-04 | Phase 2 | Pending |
+| SFTP-01 | Phase 3 | Pending |
+| SFTP-02 | Phase 3 | Pending |
+| SFTP-03 | Phase 3 | Pending |
+| SFTP-04 | Phase 3 | Pending |
+| SFTP-05 | Phase 3 | Pending |
+| RDP-01 | Phase 4 | Pending |
+| RDP-02 | Phase 4 | Pending |
+| VNC-01 | Phase 4 | Pending |
+| VNC-02 | Phase 4 | Pending |
+| X11-01 | Phase 4 | Pending |
+| X11-02 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 35 total
 - Mapped to phases: 35
-- Unmapped: 0 ✓
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-19*
-*Last updated: 2026-03-19 after initial definition*
+*Last updated: 2026-03-19 after roadmap creation*
