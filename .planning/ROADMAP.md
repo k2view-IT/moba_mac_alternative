@@ -12,7 +12,7 @@ This roadmap delivers a native macOS session manager for IT/DevOps teams in four
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: App Foundation and Session Management** - Runnable app with session CRUD, folder organization, search, import/export, code signing, and DMG distribution pipeline
+- [x] **Phase 1: App Foundation and Session Management** - Runnable app with session CRUD, folder organization, search, import/export, code signing, and DMG distribution pipeline (completed 2026-03-20)
 - [ ] **Phase 2: SSH Terminal and Credentials** - SSH connections in embedded terminal tabs with full credential management (Keychain passwords + encrypted SSH key vault)
 - [ ] **Phase 3: SFTP File Browser** - Side-panel SFTP browser alongside SSH sessions with drag-and-drop file transfer
 - [ ] **Phase 4: RDP, VNC, and X11 Forwarding** - RDP and VNC session launch via system apps, X11 forwarding with XQuartz detection
@@ -88,7 +88,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. App Foundation and Session Management | 2/3 | In Progress|  |
+| 1. App Foundation and Session Management | 3/3 | Complete   | 2026-03-20 |
 | 2. SSH Terminal and Credentials | 0/3 | Not started | - |
 | 3. SFTP File Browser | 0/2 | Not started | - |
 | 4. RDP, VNC, and X11 Forwarding | 0/2 | Not started | - |

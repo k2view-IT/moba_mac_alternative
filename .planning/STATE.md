@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-02-PLAN.md (all tasks including human-verify)
-last_updated: "2026-03-20T08:07:17.211Z"
+stopped_at: Completed 01-03-PLAN.md (Tasks 1-2; awaiting human-verify checkpoint)
+last_updated: "2026-03-20T09:10:40.620Z"
 last_activity: 2026-03-19 -- Roadmap created
 progress:
   total_phases: 4
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 2
+  completed_plans: 3
   percent: 0
 ---
 
@@ -52,6 +52,7 @@ Progress: [░░░░░░░░░░] 0%
 *Updated after each plan completion*
 | Phase 01-app-foundation-and-session-management P01 | 7 | 2 tasks | 19 files |
 | Phase 01-app-foundation-and-session-management P02 | 5 | 2 tasks | 13 files |
+| Phase 01-app-foundation-and-session-management P03 | 56 | 2 tasks | 15 files |
 
 ## Accumulated Context
 
@@ -70,6 +71,8 @@ Recent decisions affecting current work:
 - [Phase 01]: App.init() async startup moved to .task{} on WindowGroup — App structs are value types in Swift 5.9, escaping Task closures in init() captured a copy of @State, silently breaking load/save
 - [Phase 01]: ExportDialogSheet built in Phase 1 with full checkbox tree, format picker, and NSSavePanel — write logic deferred to 01-03, but dialog UX complete so context menu entries are not deceptive placeholders
 - [Phase 01]: Removed custom sidebar.left ToolbarItem — NavigationSplitView already provides its own sidebar toggle button; adding a second caused a duplicate in the toolbar
+- [Phase 01-app-foundation-and-session-management]: MobaXterm RDP type code is 1 (not 4 as documented) — parser accepts both 1 and 4 for forward-compatibility
+- [Phase 01-app-foundation-and-session-management]: ImportWizardSheet uses sheet-over-sheet pattern for conflict and summary sheets to preserve wizard state during multi-step import flow
 
 ### Pending Todos
 
@@ -83,6 +86,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T08:06:57.493Z
-Stopped at: Completed 01-02-PLAN.md (all tasks including human-verify)
+Last session: 2026-03-20T09:09:17.936Z
+Stopped at: Completed 01-03-PLAN.md (Tasks 1-2; awaiting human-verify checkpoint)
 Resume file: None
