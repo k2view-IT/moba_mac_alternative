@@ -9,6 +9,7 @@ struct SidebarView: View {
     @Binding var editorTargetFolderId: UUID?
 
     @Environment(SessionLibrary.self) private var library
+    @State private var renamingFolderId: UUID?
 
     var body: some View {
         Group {
@@ -31,6 +32,11 @@ struct SidebarView: View {
                 let nextOrder = library.folders.count
                 let folder = SessionFolder(name: "New Folder", parentId: nil, sortOrder: nextOrder)
                 library.addFolder(folder)
+                renamingFolderId = folder.id
+            }
+            Divider()
+            Button("Export All Sessions") {
+                // Placeholder — wired in plan 01-03
             }
         }
         .toolbar {
@@ -53,6 +59,7 @@ struct SidebarView: View {
                 FolderRowView(
                     folder: folder,
                     selectedSessionId: $selectedSessionId,
+                    renamingFolderId: $renamingFolderId,
                     onNewSession: { folderId in openNewSession(folderId: folderId) },
                     onEditSession: { session in openEditSession(session) }
                 )

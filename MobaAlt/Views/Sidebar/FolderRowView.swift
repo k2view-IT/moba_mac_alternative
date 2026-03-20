@@ -4,10 +4,14 @@ import UniformTypeIdentifiers
 struct FolderRowView: View {
     let folder: SessionFolder
     @Binding var selectedSessionId: UUID?
+    @Binding var renamingFolderId: UUID?
     var onNewSession: (UUID?) -> Void
     var onEditSession: (SessionDefinition) -> Void
 
     @Environment(SessionLibrary.self) private var library
+    @State private var renameText = ""
+
+    private var isRenaming: Bool { renamingFolderId == folder.id }
 
     private var isExpandedBinding: Binding<Bool> {
         Binding(
@@ -27,6 +31,7 @@ struct FolderRowView: View {
                 FolderRowView(
                     folder: subfolder,
                     selectedSessionId: $selectedSessionId,
+                    renamingFolderId: $renamingFolderId,
                     onNewSession: onNewSession,
                     onEditSession: onEditSession
                 )
@@ -42,10 +47,22 @@ struct FolderRowView: View {
                 .padding(.leading, 8)
             }
         } label: {
-            Label(folder.name, systemImage: "folder.fill")
-                .fontWeight(.semibold)
-                .foregroundStyle(.primary)
-                .labelStyle(FolderLabelStyle())
+            if isRenaming {
+                HStack(spacing: 4) {
+                    Image(systemName: "folder.fill")
+                        .foregroundStyle(Color(nsColor: .systemYellow))
+                    TextField("Folder name", text: $renameText)
+                        .textFieldStyle(.plain)
+                        .onSubmit { commitRename() }
+                        .onExitCommand { renamingFolderId = nil }
+                        .onAppear { renameText = folder.name }
+                }
+            } else {
+                Label(folder.name, systemImage: "folder.fill")
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.primary)
+                    .labelStyle(FolderLabelStyle())
+            }
         }
         .onDrop(
             of: [UTType.plainText],
@@ -56,15 +73,24 @@ struct FolderRowView: View {
                 onNewSession(folder.id)
             }
             Button("Rename Folder") {
-                // Phase 1 placeholder — inline rename not yet implemented
+                renameText = folder.name
+                renamingFolderId = folder.id
             }
+            Divider()
             Button("Delete Folder", role: .destructive) {
                 library.deleteFolder(id: folder.id)
             }
-            Button("Export this Folder") {
-                // Placeholder — implemented in plan 01-03
-            }
         }
+    }
+
+    private func commitRename() {
+        let trimmed = renameText.trimmingCharacters(in: .whitespaces)
+        if !trimmed.isEmpty {
+            var updated = folder
+            updated.name = trimmed
+            library.updateFolder(updated)
+        }
+        renamingFolderId = nil
     }
 }
 
