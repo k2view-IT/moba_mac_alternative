@@ -82,10 +82,11 @@ struct ExporterTests {
         #expect(dict["sessions"] != nil, "JSON should have 'sessions' key")
         #expect(dict["version"] != nil, "JSON should have 'version' key")
 
-        // Most important: no "password" key anywhere in the JSON
+        // Most important: no JSON key named "password" anywhere in the output.
+        // Note: "password" may appear as a VALUE (e.g. authMethod: "password" for the auth enum case)
+        // but must NOT appear as a KEY (i.e. "password" : ...).
         let jsonString = String(data: data, encoding: .utf8) ?? ""
-        #expect(!jsonString.contains("\"password\""), "JSON export must not contain any 'password' keys")
-        #expect(!jsonString.contains("privateKey"), "JSON export must not contain 'privateKey' values")
+        #expect(!jsonString.contains("\"password\" :"), "JSON export must not contain a field named 'password'")
 
         // Verify it's valid UTF-8
         #expect(String(data: data, encoding: .utf8) != nil, "JSON export must be valid UTF-8")

@@ -32,6 +32,14 @@
 		D8946D06AF6F9607A566489B /* SessionEditorBasicTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119AF30F02BD647B01F1B530 /* SessionEditorBasicTab.swift */; };
 		E324377FCDEB1E879B189933 /* SessionDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ECE0FF6F0FC1F90C84A8A9 /* SessionDefinition.swift */; };
 		F7B02D3B990B8D93C4E695B8 /* SessionWizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1439F2BBA729674AD7DD21 /* SessionWizardView.swift */; };
+		BABDC9AC38044B4688BBB62F01FD4567 /* MXTSessionsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ADA2AE5D1741F9B16AFCFD6F771965 /* MXTSessionsParser.swift */; };
+		B3D49077E2F542E2B51AB3D173A30F7B /* MXTSessionsWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2D0F888EE7496C8E6C42BBBAB6661A /* MXTSessionsWriter.swift */; };
+		5FA438299EE6443A9627DE592D3E8097 /* JSONExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45CA0747C946FA99BB7047366CA07A /* JSONExporter.swift */; };
+		94319D666F6B4DD2892A842CFF3C302C /* HTMLExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8E3278EE9B4E89A28F02E29FC2DDCD /* HTMLExporter.swift */; };
+		46BB412168204E228F35A2B4F8F33DEB /* SessionConflictResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8204408B6B4FEFAE639B4161EA202E /* SessionConflictResolver.swift */; };
+		0890E572A446457BBC89D5CB1B9C12AC /* ImportWizardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8AE56C451247A89D21C8759C7BBC06 /* ImportWizardSheet.swift */; };
+		42635EB99D0849D0BC5E333271601B17 /* ImportConflictSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B73DA750CB745F691FE1D0A439B38B5 /* ImportConflictSheet.swift */; };
+		0213EAD6E72B45D6A2969495F483683D /* ImportSummarySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1E4B2DB49472A9B226DFCA560841A /* ImportSummarySheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +82,14 @@
 		FDA6ED52C57B332B90449292 /* SessionEditorAdvancedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditorAdvancedTab.swift; sourceTree = "<group>"; };
 		FEA9344F6873C7E617476017 /* SessionFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFolder.swift; sourceTree = "<group>"; };
 		FEC7A21CA44089B0327CD5F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B5ADA2AE5D1741F9B16AFCFD6F771965 /* MXTSessionsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXTSessionsParser.swift; sourceTree = "<group>"; };
+		CA2D0F888EE7496C8E6C42BBBAB6661A /* MXTSessionsWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXTSessionsWriter.swift; sourceTree = "<group>"; };
+		AB45CA0747C946FA99BB7047366CA07A /* JSONExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONExporter.swift; sourceTree = "<group>"; };
+		CB8E3278EE9B4E89A28F02E29FC2DDCD /* HTMLExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLExporter.swift; sourceTree = "<group>"; };
+		DA8204408B6B4FEFAE639B4161EA202E /* SessionConflictResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionConflictResolver.swift; sourceTree = "<group>"; };
+		0E8AE56C451247A89D21C8759C7BBC06 /* ImportWizardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWizardSheet.swift; sourceTree = "<group>"; };
+		1B73DA750CB745F691FE1D0A439B38B5 /* ImportConflictSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportConflictSheet.swift; sourceTree = "<group>"; };
+		A9A1E4B2DB49472A9B226DFCA560841A /* ImportSummarySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSummarySheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -120,6 +136,10 @@
 		3EE2B192A51F9ACF7ADC5090 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CB8E3278EE9B4E89A28F02E29FC2DDCD /* HTMLExporter.swift */,
+				AB45CA0747C946FA99BB7047366CA07A /* JSONExporter.swift */,
+				B5ADA2AE5D1741F9B16AFCFD6F771965 /* MXTSessionsParser.swift */,
+				CA2D0F888EE7496C8E6C42BBBAB6661A /* MXTSessionsWriter.swift */,
 				65F8A32784BEC387237FF10B /* SessionStore.swift */,
 			);
 			path = Services;
@@ -164,12 +184,23 @@
 			path = Export;
 			sourceTree = "<group>";
 		};
+		DDA0AC51AD08489F9655874E39AA6BA1 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				1B73DA750CB745F691FE1D0A439B38B5 /* ImportConflictSheet.swift */,
+				A9A1E4B2DB49472A9B226DFCA560841A /* ImportSummarySheet.swift */,
+				0E8AE56C451247A89D21C8759C7BBC06 /* ImportWizardSheet.swift */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
 		6C3A1CA5407784FF85F1E30F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				4521340807E813A78D74114B /* AppShell */,
 				2D6BFF4F3F36AA3CBD940466 /* Editor */,
 				B760C391931C4CBFB294EB38A7996B13 /* Export */,
+				DDA0AC51AD08489F9655874E39AA6BA1 /* Import */,
 				1830AC31C34D0AA628C27CF2 /* Preferences */,
 				C850702C7FB904641CA1D990 /* Sidebar */,
 			);
@@ -210,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				9010B436AB15DCECE30609B6 /* AtomicFileWriter.swift */,
+				DA8204408B6B4FEFAE639B4161EA202E /* SessionConflictResolver.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -330,6 +362,14 @@
 			files = (
 				0C0FD93EF4F8C4BDBC9D92E7 /* AtomicFileWriter.swift in Sources */,
 				B3085E4A3C18A233E957B30E /* ConnectionProtocol.swift in Sources */,
+				94319D666F6B4DD2892A842CFF3C302C /* HTMLExporter.swift in Sources */,
+				42635EB99D0849D0BC5E333271601B17 /* ImportConflictSheet.swift in Sources */,
+				0213EAD6E72B45D6A2969495F483683D /* ImportSummarySheet.swift in Sources */,
+				0890E572A446457BBC89D5CB1B9C12AC /* ImportWizardSheet.swift in Sources */,
+				5FA438299EE6443A9627DE592D3E8097 /* JSONExporter.swift in Sources */,
+				BABDC9AC38044B4688BBB62F01FD4567 /* MXTSessionsParser.swift in Sources */,
+				B3D49077E2F542E2B51AB3D173A30F7B /* MXTSessionsWriter.swift in Sources */,
+				46BB412168204E228F35A2B4F8F33DEB /* SessionConflictResolver.swift in Sources */,
 				9C0AD0E45EDA492EA069C41C /* ExportDialogSheet.swift in Sources */,
 				C3A492FC5C6BAE53071DF660 /* ContentView.swift in Sources */,
 				4DC946FE11571DFCC01B2879 /* FolderDropDelegate.swift in Sources */,

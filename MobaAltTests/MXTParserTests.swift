@@ -7,20 +7,19 @@ struct MXTParserTests {
 
     // Helper: load sample.mxtsessions from test bundle
     private func loadSampleData() throws -> Data {
-        // Try Bundle.module approach first (Swift Package Manager style)
-        // For Xcode test bundles, use Bundle(for:) or direct path
-        let bundle = Bundle(for: SessionLibraryTests.self)
-        if let url = bundle.url(forResource: "sample", withExtension: "mxtsessions") {
-            return try Data(contentsOf: url)
+        // Use Bundle.allBundles to search all loaded bundles for the resource
+        for bundle in Bundle.allBundles {
+            if let url = bundle.url(forResource: "sample", withExtension: "mxtsessions") {
+                return try Data(contentsOf: url)
+            }
         }
-        // Fallback: locate by searching relative to the test binary
-        let paths = [
-            // Xcode test bundle resource path
-            bundle.resourcePath.map { $0 + "/sample.mxtsessions" } ?? "",
-        ]
-        for path in paths where !path.isEmpty {
-            if FileManager.default.fileExists(atPath: path) {
-                return try Data(contentsOf: URL(fileURLWithPath: path))
+        // Fallback: try to find by bundle path pattern for Xcode test bundles
+        let derivedDataPattern = Bundle.main.bundlePath
+        let testBundlePaths = Bundle.allBundles.compactMap { $0.resourcePath }
+        for path in testBundlePaths {
+            let filePath = path + "/sample.mxtsessions"
+            if FileManager.default.fileExists(atPath: filePath) {
+                return try Data(contentsOf: URL(fileURLWithPath: filePath))
             }
         }
         throw NSError(domain: "MXTParserTests", code: 1,
