@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-01-PLAN.md
-last_updated: "2026-03-20T06:18:33.681Z"
+stopped_at: Completed 01-02-PLAN.md (Tasks 1-2); awaiting human-verify checkpoint
+last_updated: "2026-03-20T06:25:38.241Z"
 last_activity: 2026-03-19 -- Roadmap created
 progress:
   total_phases: 4
   completed_phases: 0
   total_plans: 3
-  completed_plans: 1
+  completed_plans: 2
   percent: 0
 ---
 
@@ -51,6 +51,7 @@ Progress: [░░░░░░░░░░] 0%
 
 *Updated after each plan completion*
 | Phase 01-app-foundation-and-session-management P01 | 7 | 2 tasks | 19 files |
+| Phase 01-app-foundation-and-session-management P02 | 5 | 2 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -64,6 +65,8 @@ Recent decisions affecting current work:
 - [Phase 01]: Used xcodegen (Homebrew) to generate Xcode project from project.yml — avoids hand-editing project.pbxproj
 - [Phase 01]: ConnectionProtocol uses {type,config} JSON discriminator for forward-compatibility with future protocol additions in Phases 2-4
 - [Phase 01]: SessionStore exposes init(directory:) for test isolation — avoids polluting Application Support during unit test runs
+- [Phase 01]: Moved ContentView to Views/AppShell/ to co-locate with SidebarView; old Views/ContentView.swift emptied to avoid duplicate type
+- [Phase 01]: FolderDropDelegate takes targetFolderId: UUID? (nil=root) so same delegate reused for folder row drops and sidebar background drop zone
 
 ### Pending Todos
 
@@ -77,6 +80,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T06:18:33.678Z
-Stopped at: Completed 01-01-PLAN.md
+Last session: 2026-03-20T06:25:38.239Z
+Stopped at: Completed 01-02-PLAN.md (Tasks 1-2); awaiting human-verify checkpoint
 Resume file: None
