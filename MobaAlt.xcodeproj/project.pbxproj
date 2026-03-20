@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01D4DAF0BEC9B1AE12BE34C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C620F1588117D11A19A0 /* ContentView.swift */; };
+		06C33519F77C25257808B031 /* MXTParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0991998F5745EFA649EAC063 /* MXTParserTests.swift */; };
+		087321E988A7D4122041FD67 /* sample.mxtsessions in Resources */ = {isa = PBXBuildFile; fileRef = E997F25D93BAEE67E800D4BB /* sample.mxtsessions */; };
+		0C0FD93EF4F8C4BDBC9D92E7 /* AtomicFileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9010B436AB15DCECE30609B6 /* AtomicFileWriter.swift */; };
+		45630B56E6FB74CD41A71DE9 /* MobaAltApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B772C7AA912AFCDA53D3E /* MobaAltApp.swift */; };
+		519964207A8C1961A7E8BEA4 /* EntitlementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E429134CF80C6DD135B81292 /* EntitlementTests.swift */; };
+		64F9F6B7C89D01FCF7B09700 /* SessionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181E40A6994B69CFE105025 /* SessionStoreTests.swift */; };
+		77DA734223786755D3E49D7E /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F8A32784BEC387237FF10B /* SessionStore.swift */; };
+		86295BC30CF7C2B02C34533E /* SessionFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA9344F6873C7E617476017 /* SessionFolder.swift */; };
+		8854A9F2911D1F01D9F3D723 /* ExporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0A29EAE452563159939FD /* ExporterTests.swift */; };
+		8E35D3B3B00419A966AA28E4 /* SessionLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2206B56D26840BBDCE33 /* SessionLibrary.swift */; };
+		A3DD1C487F0016AA87EE9984 /* SessionLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA93DF140BD2FBCBF0A4994 /* SessionLibraryTests.swift */; };
+		B3085E4A3C18A233E957B30E /* ConnectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1B86595FA9903755D1ACE9 /* ConnectionProtocol.swift */; };
+		E324377FCDEB1E879B189933 /* SessionDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ECE0FF6F0FC1F90C84A8A9 /* SessionDefinition.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		258191919914AF43C8841057 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9C40655DFA7F5B375FE20EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE0480E9CD3B7321E11180D0;
+			remoteInfo = MobaAlt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0991998F5745EFA649EAC063 /* MXTParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXTParserTests.swift; sourceTree = "<group>"; };
+		1C1B86595FA9903755D1ACE9 /* ConnectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionProtocol.swift; sourceTree = "<group>"; };
+		26BA2206B56D26840BBDCE33 /* SessionLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLibrary.swift; sourceTree = "<group>"; };
+		3D0B772C7AA912AFCDA53D3E /* MobaAltApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobaAltApp.swift; sourceTree = "<group>"; };
+		4AB0A29EAE452563159939FD /* ExporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExporterTests.swift; sourceTree = "<group>"; };
+		5181E40A6994B69CFE105025 /* SessionStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStoreTests.swift; sourceTree = "<group>"; };
+		5E6A1BAC8E8CA965118A2412 /* MobaAlt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MobaAlt.entitlements; sourceTree = "<group>"; };
+		65F8A32784BEC387237FF10B /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		9010B436AB15DCECE30609B6 /* AtomicFileWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicFileWriter.swift; sourceTree = "<group>"; };
+		A894C620F1588117D11A19A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AF0115DE4C2A0B539A186FC2 /* MobaAltTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobaAltTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFA93DF140BD2FBCBF0A4994 /* SessionLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLibraryTests.swift; sourceTree = "<group>"; };
+		C6ECE0FF6F0FC1F90C84A8A9 /* SessionDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDefinition.swift; sourceTree = "<group>"; };
+		E429134CF80C6DD135B81292 /* EntitlementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitlementTests.swift; sourceTree = "<group>"; };
+		E997F25D93BAEE67E800D4BB /* sample.mxtsessions */ = {isa = PBXFileReference; path = sample.mxtsessions; sourceTree = "<group>"; };
+		F4F1EC2D00B83A09526F4133 /* MobaAlt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobaAlt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEA9344F6873C7E617476017 /* SessionFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFolder.swift; sourceTree = "<group>"; };
+		FEC7A21CA44089B0327CD5F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		164669522717BF693F147A3B /* MobaAltTests */ = {
+			isa = PBXGroup;
+			children = (
+				E429134CF80C6DD135B81292 /* EntitlementTests.swift */,
+				4AB0A29EAE452563159939FD /* ExporterTests.swift */,
+				0991998F5745EFA649EAC063 /* MXTParserTests.swift */,
+				BFA93DF140BD2FBCBF0A4994 /* SessionLibraryTests.swift */,
+				5181E40A6994B69CFE105025 /* SessionStoreTests.swift */,
+				26D5D923DF05252DB40846CB /* Fixtures */,
+			);
+			path = MobaAltTests;
+			sourceTree = "<group>";
+		};
+		26D5D923DF05252DB40846CB /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				E997F25D93BAEE67E800D4BB /* sample.mxtsessions */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		3EE2B192A51F9ACF7ADC5090 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				65F8A32784BEC387237FF10B /* SessionStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		50E185BCDBCB3851AF94B5C5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5E6A1BAC8E8CA965118A2412 /* MobaAlt.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5AE77B50E9642344C389E567 /* MobaAlt */ = {
+			isa = PBXGroup;
+			children = (
+				FEC7A21CA44089B0327CD5F5 /* Info.plist */,
+				3D0B772C7AA912AFCDA53D3E /* MobaAltApp.swift */,
+				A7F85C96E35359E89CCB20D5 /* Models */,
+				50E185BCDBCB3851AF94B5C5 /* Resources */,
+				3EE2B192A51F9ACF7ADC5090 /* Services */,
+				B754DD64021407070E0E39EF /* Utilities */,
+				6C3A1CA5407784FF85F1E30F /* Views */,
+			);
+			path = MobaAlt;
+			sourceTree = "<group>";
+		};
+		6C3A1CA5407784FF85F1E30F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A894C620F1588117D11A19A0 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8A142E01200C17B36C9631A4 = {
+			isa = PBXGroup;
+			children = (
+				5AE77B50E9642344C389E567 /* MobaAlt */,
+				164669522717BF693F147A3B /* MobaAltTests */,
+				955722702C1D60CC6BB6F643 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		955722702C1D60CC6BB6F643 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F4F1EC2D00B83A09526F4133 /* MobaAlt.app */,
+				AF0115DE4C2A0B539A186FC2 /* MobaAltTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7F85C96E35359E89CCB20D5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1C1B86595FA9903755D1ACE9 /* ConnectionProtocol.swift */,
+				C6ECE0FF6F0FC1F90C84A8A9 /* SessionDefinition.swift */,
+				FEA9344F6873C7E617476017 /* SessionFolder.swift */,
+				26BA2206B56D26840BBDCE33 /* SessionLibrary.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B754DD64021407070E0E39EF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9010B436AB15DCECE30609B6 /* AtomicFileWriter.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2A519F7B3A3A1CB54F7918D1 /* MobaAltTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E236C9F50A4EC041F57F83E /* Build configuration list for PBXNativeTarget "MobaAltTests" */;
+			buildPhases = (
+				563A194FD4A025C5BE8DDCA3 /* Sources */,
+				0C23E89A8FC5273A1927BD42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				428117EF538277B4AEFEE5A9 /* PBXTargetDependency */,
+			);
+			name = MobaAltTests;
+			packageProductDependencies = (
+			);
+			productName = MobaAltTests;
+			productReference = AF0115DE4C2A0B539A186FC2 /* MobaAltTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FE0480E9CD3B7321E11180D0 /* MobaAlt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A3906E1C02FC0373175CC35 /* Build configuration list for PBXNativeTarget "MobaAlt" */;
+			buildPhases = (
+				9C056477E4D1A08F20B89F9C /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MobaAlt;
+			packageProductDependencies = (
+			);
+			productName = MobaAlt;
+			productReference = F4F1EC2D00B83A09526F4133 /* MobaAlt.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9C40655DFA7F5B375FE20EB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					2A519F7B3A3A1CB54F7918D1 = {
+						ProvisioningStyle = Automatic;
+					};
+					FE0480E9CD3B7321E11180D0 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A4F56FAE3325C10C822DB512 /* Build configuration list for PBXProject "MobaAlt" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 8A142E01200C17B36C9631A4;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 955722702C1D60CC6BB6F643 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE0480E9CD3B7321E11180D0 /* MobaAlt */,
+				2A519F7B3A3A1CB54F7918D1 /* MobaAltTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0C23E89A8FC5273A1927BD42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				087321E988A7D4122041FD67 /* sample.mxtsessions in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		563A194FD4A025C5BE8DDCA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				519964207A8C1961A7E8BEA4 /* EntitlementTests.swift in Sources */,
+				8854A9F2911D1F01D9F3D723 /* ExporterTests.swift in Sources */,
+				06C33519F77C25257808B031 /* MXTParserTests.swift in Sources */,
+				A3DD1C487F0016AA87EE9984 /* SessionLibraryTests.swift in Sources */,
+				64F9F6B7C89D01FCF7B09700 /* SessionStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C056477E4D1A08F20B89F9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C0FD93EF4F8C4BDBC9D92E7 /* AtomicFileWriter.swift in Sources */,
+				B3085E4A3C18A233E957B30E /* ConnectionProtocol.swift in Sources */,
+				01D4DAF0BEC9B1AE12BE34C0 /* ContentView.swift in Sources */,
+				45630B56E6FB74CD41A71DE9 /* MobaAltApp.swift in Sources */,
+				E324377FCDEB1E879B189933 /* SessionDefinition.swift in Sources */,
+				86295BC30CF7C2B02C34533E /* SessionFolder.swift in Sources */,
+				8E35D3B3B00419A966AA28E4 /* SessionLibrary.swift in Sources */,
+				77DA734223786755D3E49D7E /* SessionStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		428117EF538277B4AEFEE5A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE0480E9CD3B7321E11180D0 /* MobaAlt */;
+			targetProxy = 258191919914AF43C8841057 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		32C177D14893466ADC3704A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MobaAlt/Resources/MobaAlt.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = MobaAlt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobaalt.MobaAlt;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		5CB498279B73BD6940F8F732 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MobaAlt/Resources/MobaAlt.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = MobaAlt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobaalt.MobaAlt;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		6B749B59ACA12B10B658AF4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobaalt.MobaAltTests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobaAlt.app/Contents/MacOS/MobaAlt";
+			};
+			name = Debug;
+		};
+		6F68481DA176C110545DDBF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		B490FF75E85C0113B66A652C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		CEAC7835C5F14FC01BD3497D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobaalt.MobaAltTests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobaAlt.app/Contents/MacOS/MobaAlt";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A3906E1C02FC0373175CC35 /* Build configuration list for PBXNativeTarget "MobaAlt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CB498279B73BD6940F8F732 /* Debug */,
+				32C177D14893466ADC3704A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5E236C9F50A4EC041F57F83E /* Build configuration list for PBXNativeTarget "MobaAltTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B749B59ACA12B10B658AF4D /* Debug */,
+				CEAC7835C5F14FC01BD3497D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A4F56FAE3325C10C822DB512 /* Build configuration list for PBXProject "MobaAlt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F68481DA176C110545DDBF3 /* Debug */,
+				B490FF75E85C0113B66A652C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9C40655DFA7F5B375FE20EB /* Project object */;
+}

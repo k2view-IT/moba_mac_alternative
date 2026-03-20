@@ -1,0 +1,14 @@
+[Bookmarks]
+SubRep=
+ImgNum=42
+Web Server=#109#0%192.168.1.100%22%admin%-1%-1%%%%%0%0%0%%%-1%0%0%0%%1080%%0%0%1##0#0#0#0#
+
+[Bookmarks_1]
+SubRep=Production
+ImgNum=41
+Win Server=#91#1%10.0.0.5%3389%%%%%9%%0%1%%%%-1##0#0#0#0#
+
+[Bookmarks_2]
+SubRep=Production\DB
+ImgNum=41
+DB Monitor=#98#%10.0.0.10%5900%%##0#0#0#0#

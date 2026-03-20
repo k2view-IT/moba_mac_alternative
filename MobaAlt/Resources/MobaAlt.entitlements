@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!--
+        Hardened Runtime is enabled via ENABLE_HARDENED_RUNTIME = YES in build settings.
+        App Sandbox is NOT enabled — no com.apple.security.app-sandbox key is present.
+        In a non-sandboxed Hardened Runtime app:
+          - Process spawning (Foundation.Process) works without entitlements
+          - Keychain access works without entitlements
+          - No additional entitlement keys are needed for this app's core functionality
+    -->
+</dict>
+</plist>

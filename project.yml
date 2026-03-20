@@ -1,0 +1,49 @@
+name: MobaAlt
+options:
+  bundleIdPrefix: com.mobaalt
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "15"
+  generateEmptyDirectories: true
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    ENABLE_HARDENED_RUNTIME: YES
+    CODE_SIGN_STYLE: Automatic
+
+targets:
+  MobaAlt:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: MobaAlt
+        excludes:
+          - "**/*.md"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mobaalt.MobaAlt
+        INFOPLIST_FILE: MobaAlt/Info.plist
+        CODE_SIGN_ENTITLEMENTS: MobaAlt/Resources/MobaAlt.entitlements
+        ENABLE_HARDENED_RUNTIME: YES
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+
+  MobaAltTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: MobaAltTests
+        excludes:
+          - "**/*.md"
+    dependencies:
+      - target: MobaAlt
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mobaalt.MobaAltTests
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
