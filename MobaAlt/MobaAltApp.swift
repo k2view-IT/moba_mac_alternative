@@ -33,5 +33,9 @@ struct MobaAltApp: App {
                 .environment(library)
         }
         .defaultSize(width: 1100, height: 720)
+
+        Settings {
+            PreferencesView()
+        }
     }
 }
