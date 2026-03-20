@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-03-19T14:57:26.392Z"
+stopped_at: Completed 01-01-PLAN.md
+last_updated: "2026-03-20T06:18:33.681Z"
 last_activity: 2026-03-19 -- Roadmap created
 progress:
   total_phases: 4
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_plans: 3
+  completed_plans: 1
   percent: 0
 ---
 
@@ -50,6 +50,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: -
 
 *Updated after each plan completion*
+| Phase 01-app-foundation-and-session-management P01 | 7 | 2 tasks | 19 files |
 
 ## Accumulated Context
 
@@ -60,6 +61,9 @@ Recent decisions affecting current work:
 
 - Roadmap: Merged Credentials (Phase 3 in research) into SSH Terminal phase -- credentials are needed for SSH auth and separating them adds a phase boundary without delivering user value
 - Roadmap: 4 phases (coarse granularity) derived from 5-phase research recommendation by compressing credentials into SSH phase
+- [Phase 01]: Used xcodegen (Homebrew) to generate Xcode project from project.yml — avoids hand-editing project.pbxproj
+- [Phase 01]: ConnectionProtocol uses {type,config} JSON discriminator for forward-compatibility with future protocol additions in Phases 2-4
+- [Phase 01]: SessionStore exposes init(directory:) for test isolation — avoids polluting Application Support during unit test runs
 
 ### Pending Todos
 
@@ -73,6 +77,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-19T14:57:26.389Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-app-foundation-and-session-management/01-CONTEXT.md
+Last session: 2026-03-20T06:18:33.678Z
+Stopped at: Completed 01-01-PLAN.md
+Resume file: None
