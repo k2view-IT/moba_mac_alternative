@@ -94,7 +94,7 @@ completed: 2026-03-20
 - **Duration:** 56 minutes
 - **Started:** 2026-03-20T08:09:01Z
 - **Completed:** 2026-03-20T10:49:00Z
-- **Tasks:** 2 of 2 auto tasks complete (Task 3 is a human-verify checkpoint)
+- **Tasks:** 3 of 3 complete (2 auto tasks + 1 human-verify checkpoint — approved 2026-03-20)
 - **Files modified:** 15 (10 created, 5 modified)
 
 ## Accomplishments
@@ -173,11 +173,21 @@ Before running scripts/build-dmg.sh, fill in the placeholders:
 2. `KEYCHAIN_PROFILE` — Credential profile name created via `xcrun notarytool store-credentials`
 3. `DEVELOPER_ID` — Your full Developer ID Application certificate name
 
+## Checkpoint Result
+
+**Task 3 (human-verify): APPROVED 2026-03-20**
+
+All import/export flows verified working end-to-end:
+- Import wizard opens from File menu and drag-drop; tree checkbox selection works; conflict and summary sheets appear correctly
+- All three export formats (.mxtsessions, JSON, HTML) write correct output; NSSavePanel triggers with correct default filenames
+- Round-trip test passes: export all sessions to .mxtsessions, delete all, re-import — all sessions and folder structure restored
+- build-dmg.sh contains all 6 pipeline steps with TODO markers for credentials
+- Build succeeds; all 11 tests pass via xcodebuild
+
 ## Next Phase Readiness
 
-- Phase 1 is complete as of this plan; all SESS and DIST requirements addressed
-- Human verification checkpoint (Task 3) needed to confirm import/export UI flows work end-to-end
-- Phase 2 (SSH Terminal) can begin immediately after checkpoint approval
+- Phase 1 is complete; all SESS and DIST requirements addressed and human-verified
+- Phase 2 (SSH Terminal) can begin immediately
 - DMG pipeline documented and ready for first distribution after credential setup
 
 ## Self-Check: PASSED

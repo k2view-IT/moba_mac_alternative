@@ -32,9 +32,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Xcode project, data models (SessionDefinition/SessionFolder/ConnectionProtocol), JSON persistence actor, Wave 0 test scaffolding
-- [ ] 01-02-PLAN.md — App UI shell: NavigationSplitView, sidebar folder tree with drag-and-drop, session create/edit modal with Wizard mode, real-time search, Preferences
-- [ ] 01-03-PLAN.md — MobaXterm .mxtsessions import wizard (tree selection, conflict resolution), three export formats, and DMG/notarization build pipeline
+- [x] 01-01-PLAN.md — Xcode project, data models (SessionDefinition/SessionFolder/ConnectionProtocol), JSON persistence actor, Wave 0 test scaffolding
+- [x] 01-02-PLAN.md — App UI shell: NavigationSplitView, sidebar folder tree with drag-and-drop, session create/edit modal with Wizard mode, real-time search, Preferences
+- [x] 01-03-PLAN.md — MobaXterm .mxtsessions import wizard (tree selection, conflict resolution), three export formats, and DMG/notarization build pipeline
 
 ### Phase 2: SSH Terminal and Credentials
 **Goal**: Users can securely connect to SSH hosts in an embedded terminal with tabbed sessions, using passwords from Keychain or SSH keys from an encrypted vault
