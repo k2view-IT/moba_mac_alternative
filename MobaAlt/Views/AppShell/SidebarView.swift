@@ -12,6 +12,9 @@ struct SidebarView: View {
     @State private var renamingFolderId: UUID?
     @State private var showingExport = false
     @State private var exportFolderId: UUID? = nil
+    @State private var showingImport = false
+    @State private var importURL: URL? = nil
+    @State private var isDragTarget = false
 
     var body: some View {
         Group {
@@ -25,6 +28,31 @@ struct SidebarView: View {
             of: [UTType.plainText],
             delegate: FolderDropDelegate(targetFolderId: nil, library: library)
         )
+        .onDrop(of: [UTType.fileURL], isTargeted: $isDragTarget) { providers in
+            // Accept dropped .mxtsessions files
+            for provider in providers {
+                if provider.hasItemConformingToTypeIdentifier(UTType.fileURL.identifier) {
+                    _ = provider.loadObject(ofClass: URL.self) { url, _ in
+                        guard let url = url,
+                              url.pathExtension.lowercased() == "mxtsessions" else { return }
+                        DispatchQueue.main.async {
+                            importURL = url
+                            showingImport = true
+                        }
+                    }
+                    return true
+                }
+            }
+            return false
+        }
+        .overlay {
+            if isDragTarget {
+                RoundedRectangle(cornerRadius: 8)
+                    .strokeBorder(.blue, lineWidth: 3)
+                    .padding(4)
+                    .allowsHitTesting(false)
+            }
+        }
         .contextMenu {
             Button("New Session") {
                 openNewSession(folderId: nil)
@@ -37,6 +65,10 @@ struct SidebarView: View {
                 renamingFolderId = folder.id
             }
             Divider()
+            Button("Import Sessions…") {
+                importURL = nil
+                showingImport = true
+            }
             Button("Export…") {
                 exportFolderId = nil
                 showingExport = true
@@ -59,6 +91,9 @@ struct SidebarView: View {
         }
         .sheet(isPresented: $showingExport) {
             ExportDialogSheet(initialFolderId: exportFolderId)
+        }
+        .sheet(isPresented: $showingImport) {
+            ImportWizardSheet(preloadedURL: importURL)
         }
     }
 

@@ -5,6 +5,10 @@ struct MobaAltApp: App {
     @State private var library = SessionLibrary()
     private let store = SessionStore()
 
+    // Import/Export sheet state (driven by menu commands)
+    @State private var showingImportFromMenu = false
+    @State private var showingExportFromMenu = false
+
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -27,8 +31,29 @@ struct MobaAltApp: App {
                         print("[MobaAlt] Failed to load sessions: \(error)")
                     }
                 }
+                .sheet(isPresented: $showingImportFromMenu) {
+                    ImportWizardSheet(preloadedURL: nil)
+                        .environment(library)
+                }
+                .sheet(isPresented: $showingExportFromMenu) {
+                    ExportDialogSheet(initialFolderId: nil)
+                        .environment(library)
+                }
         }
         .defaultSize(width: 1100, height: 720)
+        .commands {
+            CommandGroup(after: .newItem) {
+                Divider()
+                Button("Import Sessions…") {
+                    showingImportFromMenu = true
+                }
+                .keyboardShortcut("i", modifiers: [.command, .shift])
+
+                Button("Export Sessions…") {
+                    showingExportFromMenu = true
+                }
+            }
+        }
 
         Settings {
             PreferencesView()

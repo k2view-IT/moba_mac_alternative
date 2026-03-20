@@ -97,6 +97,26 @@ struct ExportDialogSheet: View {
 
             Divider()
 
+            // ── Security note ──────────────────────────────────────────
+            HStack {
+                Image(systemName: "lock.fill")
+                    .foregroundStyle(.secondary)
+                    .font(.caption)
+                Text("Passwords and SSH keys are never included in exports.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.bottom, 4)
+
+            if let error = exportError {
+                Text(error)
+                    .font(.caption)
+                    .foregroundStyle(.red)
+                    .padding(.horizontal)
+            }
+
             // ── Footer ────────────────────────────────────────────────
             HStack {
                 Button("Cancel") { dismiss() }
@@ -131,25 +151,71 @@ struct ExportDialogSheet: View {
         return ids
     }
 
+    @State private var exportError: String? = nil
+
     private func runExport() {
+        exportError = nil
         let panel = NSSavePanel()
         panel.canCreateDirectories = true
         switch exportFormat {
         case .json:
             panel.allowedContentTypes = [.json]
-            panel.nameFieldStringValue = "sessions.json"
+            panel.nameFieldStringValue = "MobaAlt-Sessions.json"
         case .mxtsessions:
             panel.allowedContentTypes = [UTType(filenameExtension: "mxtsessions") ?? .data]
-            panel.nameFieldStringValue = "sessions.mxtsessions"
+            panel.nameFieldStringValue = "MobaAlt-Sessions.mxtsessions"
         case .html:
             panel.allowedContentTypes = [.html]
-            panel.nameFieldStringValue = "sessions.html"
+            panel.nameFieldStringValue = "MobaAlt-Sessions.html"
         }
         panel.begin { response in
             guard response == .OK, let url = panel.url else { return }
-            // Actual file writing wired in plan 01-03
-            print("[Export] \(selectedSessions.count) sessions → \(url.path) as \(exportFormat.rawValue)")
-            dismiss()
+            do {
+                try writeExport(to: url)
+                dismiss()
+            } catch {
+                exportError = "Export failed: \(error.localizedDescription)"
+            }
+        }
+    }
+
+    private func writeExport(to url: URL) throws {
+        let sessions = selectedSessions
+        let folders = relevantFolders(for: sessions)
+        switch exportFormat {
+        case .mxtsessions:
+            let data = try MXTSessionsWriter().export(sessions: sessions, folders: folders)
+            try data.write(to: url, options: .atomicWrite)
+        case .json:
+            let data = try JSONExporter().export(sessions: sessions, folders: folders)
+            try data.write(to: url, options: .atomicWrite)
+        case .html:
+            let html = HTMLExporter().export(sessions: sessions, folders: folders)
+            guard let data = html.data(using: .utf8) else {
+                throw NSError(domain: "ExportDialog", code: 1,
+                              userInfo: [NSLocalizedDescriptionKey: "Failed to encode HTML as UTF-8"])
+            }
+            try data.write(to: url, options: .atomicWrite)
+        }
+    }
+
+    /// Returns the folders relevant to the exported sessions (direct parents + ancestors).
+    private func relevantFolders(for sessions: [SessionDefinition]) -> [SessionFolder] {
+        var folderIds = Set<UUID>()
+        for session in sessions {
+            if let fid = session.folderId {
+                collectAncestors(of: fid, into: &folderIds)
+            }
+        }
+        return library.folders.filter { folderIds.contains($0.id) }
+    }
+
+    private func collectAncestors(of folderId: UUID, into ids: inout Set<UUID>) {
+        guard !ids.contains(folderId) else { return }
+        ids.insert(folderId)
+        if let folder = library.folders.first(where: { $0.id == folderId }),
+           let parentId = folder.parentId {
+            collectAncestors(of: parentId, into: &ids)
         }
     }
 }
