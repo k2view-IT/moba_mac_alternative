@@ -49,6 +49,7 @@ struct FolderRowView: View {
                     onConnect: { print("[Phase 1] Connect: \(session.name)") }
                 )
                 .padding(.leading, 8)
+                .tag(session.id)
             }
         } label: {
             if isRenaming {

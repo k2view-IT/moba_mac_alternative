@@ -51,9 +51,6 @@ struct SessionRowView: View {
             print("[Phase 1] Connect: \(session.name)")
             onConnect()
         }
-        .onTapGesture(count: 1) {
-            selectedSessionId = session.id
-        }
         .contextMenu {
             Button("Connect") {
                 print("[Phase 1] Connect: \(session.name)")

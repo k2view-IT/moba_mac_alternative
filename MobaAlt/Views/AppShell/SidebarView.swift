@@ -121,6 +121,7 @@ struct SidebarView: View {
                     onEdit: { openEditSession(session) },
                     onConnect: { print("[Phase 1] Connect: \(session.name)") }
                 )
+                .tag(session.id)
             }
         }
         .listStyle(.sidebar)
