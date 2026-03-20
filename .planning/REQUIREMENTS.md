@@ -7,9 +7,9 @@
 
 ### Session Management
 
-- [ ] **SESS-01**: User can create a saved session (SSH, RDP, or VNC) with name, hostname, port, username, and auth method
-- [ ] **SESS-02**: User can organize sessions into nested folders in the sidebar
-- [ ] **SESS-03**: User can search and filter saved sessions by name or hostname
+- [x] **SESS-01**: User can create a saved session (SSH, RDP, or VNC) with name, hostname, port, username, and auth method
+- [x] **SESS-02**: User can organize sessions into nested folders in the sidebar
+- [x] **SESS-03**: User can search and filter saved sessions by name or hostname
 - [ ] **SESS-04**: User can import sessions from a MobaXterm .mxtsessions export file
 - [ ] **SESS-05**: User can export all sessions to a portable file for backup or sharing with coworkers
 
@@ -64,8 +64,8 @@
 ### Distribution
 
 - [ ] **DIST-01**: App is distributed as a notarized, code-signed DMG installer
-- [ ] **DIST-02**: App requires macOS 14 (Sonoma) as the minimum deployment target
-- [ ] **DIST-03**: App uses Hardened Runtime (without App Sandbox) to allow SSH process spawning and Keychain access
+- [x] **DIST-02**: App requires macOS 14 (Sonoma) as the minimum deployment target
+- [x] **DIST-03**: App uses Hardened Runtime (without App Sandbox) to allow SSH process spawning and Keychain access
 
 ## v2 Requirements
 
@@ -108,14 +108,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SESS-01 | Phase 1 | Pending |
-| SESS-02 | Phase 1 | Pending |
-| SESS-03 | Phase 1 | Pending |
+| SESS-01 | Phase 1 | Complete |
+| SESS-02 | Phase 1 | Complete |
+| SESS-03 | Phase 1 | Complete |
 | SESS-04 | Phase 1 | Pending |
 | SESS-05 | Phase 1 | Pending |
 | DIST-01 | Phase 1 | Pending |
-| DIST-02 | Phase 1 | Pending |
-| DIST-03 | Phase 1 | Pending |
+| DIST-02 | Phase 1 | Complete |
+| DIST-03 | Phase 1 | Complete |
 | SSH-01 | Phase 2 | Pending |
 | SSH-02 | Phase 2 | Pending |
 | SSH-03 | Phase 2 | Pending |
