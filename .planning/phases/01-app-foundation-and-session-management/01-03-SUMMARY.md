@@ -96,6 +96,7 @@ completed: 2026-03-20
 - **Completed:** 2026-03-20T10:49:00Z
 - **Tasks:** 3 of 3 complete (2 auto tasks + 1 human-verify checkpoint — approved 2026-03-20)
 - **Files modified:** 15 (10 created, 5 modified)
+- **Post-checkpoint fix:** `ed3887b` — sessions inside folders now editable and selectable
 
 ## Accomplishments
 
@@ -111,6 +112,7 @@ completed: 2026-03-20
 1. **Task 1: RED (failing tests)** - `c6adcf7` (test)
 2. **Task 1: GREEN (implementation)** - `f5252f0` (feat)
 3. **Task 2: UI wiring and distribution** - `89d6d23` (feat)
+4. **Post-checkpoint bug fix** - `ed3887b` (fix) — sessions inside folders now editable and selectable
 
 ## Files Created/Modified
 
@@ -159,8 +161,14 @@ completed: 2026-03-20
 
 ---
 
-**Total deviations:** 2 auto-fixed (both Rule 1 bugs from real-world data vs. spec mismatch)
-**Impact on plan:** Both fixes necessary for correctness. No scope creep.
+**3. [Rule 1 - Bug] Sessions inside folders were not editable or selectable**
+- **Found during:** Human-verify checkpoint (post-approval)
+- **Issue:** Sessions nested inside folders could not be selected or edited through the UI — folder children were non-interactive
+- **Fix:** Fixed session row interaction so folder children respond to selection and edit actions
+- **Commit:** ed3887b
+
+**Total deviations:** 3 auto-fixed (2 Rule 1 bugs from real-world data vs. spec mismatch, 1 Rule 1 bug discovered during verification)
+**Impact on plan:** All fixes necessary for correctness. No scope creep.
 
 ## Issues Encountered
 
@@ -192,10 +200,11 @@ All import/export flows verified working end-to-end:
 
 ## Self-Check: PASSED
 
-All 10 created files confirmed present on disk. All 3 task commits verified in git log:
+All 10 created files confirmed present on disk. All 4 task commits verified in git log:
 - `c6adcf7`: test(01-03): add failing tests for parser and exporters
 - `f5252f0`: feat(01-03): MXTSessionsParser, exporters, conflict resolver, and import wizard UI
 - `89d6d23`: feat(01-03): wire real export logic, drag-drop import, File menu, and build pipeline
+- `ed3887b`: fix: sessions inside folders now editable and selectable
 
 ---
 *Phase: 01-app-foundation-and-session-management*
