@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-02-PLAN.md (Tasks 1-2); awaiting human-verify checkpoint
-last_updated: "2026-03-20T06:25:38.241Z"
+stopped_at: Completed 01-02-PLAN.md (all tasks including human-verify)
+last_updated: "2026-03-20T08:07:17.211Z"
 last_activity: 2026-03-19 -- Roadmap created
 progress:
   total_phases: 4
@@ -67,6 +67,9 @@ Recent decisions affecting current work:
 - [Phase 01]: SessionStore exposes init(directory:) for test isolation — avoids polluting Application Support during unit test runs
 - [Phase 01]: Moved ContentView to Views/AppShell/ to co-locate with SidebarView; old Views/ContentView.swift emptied to avoid duplicate type
 - [Phase 01]: FolderDropDelegate takes targetFolderId: UUID? (nil=root) so same delegate reused for folder row drops and sidebar background drop zone
+- [Phase 01]: App.init() async startup moved to .task{} on WindowGroup — App structs are value types in Swift 5.9, escaping Task closures in init() captured a copy of @State, silently breaking load/save
+- [Phase 01]: ExportDialogSheet built in Phase 1 with full checkbox tree, format picker, and NSSavePanel — write logic deferred to 01-03, but dialog UX complete so context menu entries are not deceptive placeholders
+- [Phase 01]: Removed custom sidebar.left ToolbarItem — NavigationSplitView already provides its own sidebar toggle button; adding a second caused a duplicate in the toolbar
 
 ### Pending Todos
 
@@ -80,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-20T06:25:38.239Z
-Stopped at: Completed 01-02-PLAN.md (Tasks 1-2); awaiting human-verify checkpoint
+Last session: 2026-03-20T08:06:57.493Z
+Stopped at: Completed 01-02-PLAN.md (all tasks including human-verify)
 Resume file: None
