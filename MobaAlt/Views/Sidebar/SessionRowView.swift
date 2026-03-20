@@ -47,10 +47,9 @@ struct SessionRowView: View {
         .padding(.vertical, verticalPadding)
         .contentShape(Rectangle())
         .onHover { isHovered = $0 }
-        .onTapGesture(count: 2) {
-            print("[Phase 1] Connect: \(session.name)")
-            onConnect()
-        }
+        // NOTE: onTapGesture(count:2) removed — it blocked List(selection:) hit-testing
+        // for sessions nested inside DisclosureGroup folders. Connect is available via
+        // context menu and will become a double-click in Phase 2 once SSH is wired up.
         .contextMenu {
             Button("Connect") {
                 print("[Phase 1] Connect: \(session.name)")

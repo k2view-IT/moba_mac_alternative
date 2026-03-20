@@ -52,43 +52,51 @@ struct FolderRowView: View {
                 .tag(session.id)
             }
         } label: {
-            if isRenaming {
-                HStack(spacing: 4) {
-                    Image(systemName: "folder.fill")
-                        .foregroundStyle(Color(nsColor: .systemYellow))
-                    TextField("Folder name", text: $renameText)
-                        .textFieldStyle(.plain)
-                        .onSubmit { commitRename() }
-                        .onExitCommand { renamingFolderId = nil }
-                        .onAppear { renameText = folder.name }
+            // .contextMenu and .onDrop live ONLY on the label so child session
+            // rows get their own independent context menus and hit areas.
+            folderLabel
+                .contentShape(Rectangle())
+                .onDrop(
+                    of: [UTType.plainText],
+                    delegate: FolderDropDelegate(targetFolderId: folder.id, library: library)
+                )
+                .contextMenu {
+                    Button("New Session in Folder") {
+                        onNewSession(folder.id)
+                    }
+                    Button("Rename Folder") {
+                        renameText = folder.name
+                        renamingFolderId = folder.id
+                    }
+                    Button("Export Folder…") {
+                        exportFolderId = folder.id
+                        showingExport = true
+                    }
+                    Divider()
+                    Button("Delete Folder", role: .destructive) {
+                        library.deleteFolder(id: folder.id)
+                    }
                 }
-            } else {
-                Label(folder.name, systemImage: "folder.fill")
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.primary)
-                    .labelStyle(FolderLabelStyle())
-            }
         }
-        .onDrop(
-            of: [UTType.plainText],
-            delegate: FolderDropDelegate(targetFolderId: folder.id, library: library)
-        )
-        .contextMenu {
-            Button("New Session in Folder") {
-                onNewSession(folder.id)
+    }
+
+    @ViewBuilder
+    private var folderLabel: some View {
+        if isRenaming {
+            HStack(spacing: 4) {
+                Image(systemName: "folder.fill")
+                    .foregroundStyle(Color(nsColor: .systemYellow))
+                TextField("Folder name", text: $renameText)
+                    .textFieldStyle(.plain)
+                    .onSubmit { commitRename() }
+                    .onExitCommand { renamingFolderId = nil }
+                    .onAppear { renameText = folder.name }
             }
-            Button("Rename Folder") {
-                renameText = folder.name
-                renamingFolderId = folder.id
-            }
-            Button("Export Folder…") {
-                exportFolderId = folder.id
-                showingExport = true
-            }
-            Divider()
-            Button("Delete Folder", role: .destructive) {
-                library.deleteFolder(id: folder.id)
-            }
+        } else {
+            Label(folder.name, systemImage: "folder.fill")
+                .fontWeight(.semibold)
+                .foregroundStyle(.primary)
+                .labelStyle(FolderLabelStyle())
         }
     }
 
