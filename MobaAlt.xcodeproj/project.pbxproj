@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C0AD0E45EDA492EA069C41C /* ExportDialogSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428A8398F1E94791B64110790DC7BA2B /* ExportDialogSheet.swift */; };
 		06C33519F77C25257808B031 /* MXTParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0991998F5745EFA649EAC063 /* MXTParserTests.swift */; };
 		087321E988A7D4122041FD67 /* sample.mxtsessions in Resources */ = {isa = PBXBuildFile; fileRef = E997F25D93BAEE67E800D4BB /* sample.mxtsessions */; };
 		0C0FD93EF4F8C4BDBC9D92E7 /* AtomicFileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9010B436AB15DCECE30609B6 /* AtomicFileWriter.swift */; };
@@ -61,6 +62,7 @@
 		5E6A1BAC8E8CA965118A2412 /* MobaAlt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MobaAlt.entitlements; sourceTree = "<group>"; };
 		65F8A32784BEC387237FF10B /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		9010B436AB15DCECE30609B6 /* AtomicFileWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicFileWriter.swift; sourceTree = "<group>"; };
+		428A8398F1E94791B64110790DC7BA2B /* ExportDialogSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportDialogSheet.swift; sourceTree = "<group>"; };
 		AF0115DE4C2A0B539A186FC2 /* MobaAltTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobaAltTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA93DF140BD2FBCBF0A4994 /* SessionLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLibraryTests.swift; sourceTree = "<group>"; };
 		C6ECE0FF6F0FC1F90C84A8A9 /* SessionDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDefinition.swift; sourceTree = "<group>"; };
@@ -154,11 +156,20 @@
 			path = MobaAlt;
 			sourceTree = "<group>";
 		};
+		B760C391931C4CBFB294EB38A7996B13 /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				428A8398F1E94791B64110790DC7BA2B /* ExportDialogSheet.swift */,
+			);
+			path = Export;
+			sourceTree = "<group>";
+		};
 		6C3A1CA5407784FF85F1E30F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				4521340807E813A78D74114B /* AppShell */,
 				2D6BFF4F3F36AA3CBD940466 /* Editor */,
+				B760C391931C4CBFB294EB38A7996B13 /* Export */,
 				1830AC31C34D0AA628C27CF2 /* Preferences */,
 				C850702C7FB904641CA1D990 /* Sidebar */,
 			);
@@ -319,6 +330,7 @@
 			files = (
 				0C0FD93EF4F8C4BDBC9D92E7 /* AtomicFileWriter.swift in Sources */,
 				B3085E4A3C18A233E957B30E /* ConnectionProtocol.swift in Sources */,
+				9C0AD0E45EDA492EA069C41C /* ExportDialogSheet.swift in Sources */,
 				C3A492FC5C6BAE53071DF660 /* ContentView.swift in Sources */,
 				4DC946FE11571DFCC01B2879 /* FolderDropDelegate.swift in Sources */,
 				7E02BA375D308B6672AC8F96 /* FolderRowView.swift in Sources */,

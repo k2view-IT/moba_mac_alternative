@@ -10,6 +10,8 @@ struct SidebarView: View {
 
     @Environment(SessionLibrary.self) private var library
     @State private var renamingFolderId: UUID?
+    @State private var showingExport = false
+    @State private var exportFolderId: UUID? = nil
 
     var body: some View {
         Group {
@@ -35,8 +37,9 @@ struct SidebarView: View {
                 renamingFolderId = folder.id
             }
             Divider()
-            Button("Export All Sessions") {
-                // Placeholder — wired in plan 01-03
+            Button("Export…") {
+                exportFolderId = nil
+                showingExport = true
             }
         }
         .toolbar {
@@ -47,6 +50,15 @@ struct SidebarView: View {
                 .keyboardShortcut("n", modifiers: .command)
                 .help("New Session (Cmd+N)")
             }
+            ToolbarItem(placement: .automatic) {
+                Button(action: { exportFolderId = nil; showingExport = true }) {
+                    Label("Export", systemImage: "square.and.arrow.up")
+                }
+                .help("Export sessions…")
+            }
+        }
+        .sheet(isPresented: $showingExport) {
+            ExportDialogSheet(initialFolderId: exportFolderId)
         }
     }
 
@@ -60,6 +72,8 @@ struct SidebarView: View {
                     folder: folder,
                     selectedSessionId: $selectedSessionId,
                     renamingFolderId: $renamingFolderId,
+                    showingExport: $showingExport,
+                    exportFolderId: $exportFolderId,
                     onNewSession: { folderId in openNewSession(folderId: folderId) },
                     onEditSession: { session in openEditSession(session) }
                 )

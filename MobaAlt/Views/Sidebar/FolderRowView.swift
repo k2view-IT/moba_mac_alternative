@@ -5,6 +5,8 @@ struct FolderRowView: View {
     let folder: SessionFolder
     @Binding var selectedSessionId: UUID?
     @Binding var renamingFolderId: UUID?
+    @Binding var showingExport: Bool
+    @Binding var exportFolderId: UUID?
     var onNewSession: (UUID?) -> Void
     var onEditSession: (SessionDefinition) -> Void
 
@@ -32,6 +34,8 @@ struct FolderRowView: View {
                     folder: subfolder,
                     selectedSessionId: $selectedSessionId,
                     renamingFolderId: $renamingFolderId,
+                    showingExport: $showingExport,
+                    exportFolderId: $exportFolderId,
                     onNewSession: onNewSession,
                     onEditSession: onEditSession
                 )
@@ -75,6 +79,10 @@ struct FolderRowView: View {
             Button("Rename Folder") {
                 renameText = folder.name
                 renamingFolderId = folder.id
+            }
+            Button("Export Folder…") {
+                exportFolderId = folder.id
+                showingExport = true
             }
             Divider()
             Button("Delete Folder", role: .destructive) {
