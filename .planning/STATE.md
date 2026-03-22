@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: "Completed 02-04-PLAN.md: terminal tab UI and credential views"
-last_updated: "2026-03-22T11:01:42.703Z"
+stopped_at: "Completed 02-05-PLAN.md: PortForwardingEditorView, ActiveTunnelsView, CommandSnippetsView, SnippetStore"
+last_updated: "2026-03-22T11:03:14.019Z"
 last_activity: 2026-03-20 -- Phase 1 human-verify approved; all 3 plans complete
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 9
-  completed_plans: 7
+  completed_plans: 8
   percent: 25
 ---
 
@@ -57,6 +57,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 02-ssh-terminal-sessions P02 | 7 | 2 tasks | 5 files |
 | Phase 02-ssh-terminal-sessions P03 | 13 | 2 tasks | 12 files |
 | Phase 02-ssh-terminal-sessions P04 | 10 | 2 tasks | 10 files |
+| Phase 02-ssh-terminal-sessions P05 | 525553 | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -86,6 +87,8 @@ Recent decisions affecting current work:
 - [Phase 02-ssh-terminal-sessions]: SSHArgumentBuilder.build() takes sessionId separately from SSHConfig — ControlMaster socket uniqueness comes from session layer, not config model
 - [Phase 02-ssh-terminal-sessions]: EnvironmentKey (not @Environment(Type.self)) required for actor-based services — actors don't conform to Observable, so EnvironmentKey + EnvironmentValues extension is the correct pattern
 - [Phase 02-ssh-terminal-sessions]: TerminalTabView calls connection.start() in makeNSView if terminalView is nil — ensures exactly one start call per NSViewRepresentable lifecycle; tab switch uses .id(activeTab.id) for force-recreation
+- [Phase 02-ssh-terminal-sessions]: SnippetStore uses @Observable @MainActor class (not actor) so it integrates with SwiftUI @Environment Observable injection pattern
+- [Phase 02-ssh-terminal-sessions]: Port forwarding Tunnels tab in SessionEditorSheet uses computed Binding getter/setter on draft rather than local @State extraction
 
 ### Pending Todos
 
@@ -99,6 +102,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-22T11:01:42.700Z
-Stopped at: Completed 02-04-PLAN.md: terminal tab UI and credential views
+Last session: 2026-03-22T11:03:07.048Z
+Stopped at: Completed 02-05-PLAN.md: PortForwardingEditorView, ActiveTunnelsView, CommandSnippetsView, SnippetStore
 Resume file: None
