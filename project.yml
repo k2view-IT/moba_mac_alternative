@@ -1,4 +1,10 @@
 name: MobaAlt
+
+packages:
+  SwiftTerm:
+    url: https://github.com/migueldeicaza/SwiftTerm
+    from: "1.12.0"
+
 options:
   bundleIdPrefix: com.mobaalt
   deploymentTarget:
@@ -23,6 +29,9 @@ targets:
       - path: MobaAlt
         excludes:
           - "**/*.md"
+    dependencies:
+      - package: SwiftTerm
+        product: SwiftTerm
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.mobaalt.MobaAlt
@@ -47,3 +56,4 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.mobaalt.MobaAltTests
         SWIFT_VERSION: "5.9"
         MACOSX_DEPLOYMENT_TARGET: "14.0"
+        GENERATE_INFOPLIST_FILE: YES
