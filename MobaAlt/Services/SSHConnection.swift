@@ -55,7 +55,7 @@ final class SSHConnection: LocalProcessTerminalViewDelegate {
         view.processDelegate = self
         self.terminalView = view
 
-        let args = SSHArgumentBuilder.build(from: sshConfig, sessionId: session.id)
+        let args = SSHArgumentBuilder.build(from: sshConfig, sessionId: tabId)
         var environment = SSHArgumentBuilder.environment()
 
         // Password injection: if the session uses password auth and a password
