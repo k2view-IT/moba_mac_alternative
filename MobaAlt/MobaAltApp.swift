@@ -4,6 +4,8 @@ import SwiftUI
 struct MobaAltApp: App {
     @State private var library = SessionLibrary()
     private let store = SessionStore()
+    private let vaultManager = KeyVaultManager()
+    private let keychainManager = KeychainManager()
 
     // Import/Export sheet state (driven by menu commands)
     @State private var showingImportFromMenu = false
@@ -13,6 +15,8 @@ struct MobaAltApp: App {
         WindowGroup {
             ContentView()
                 .environment(library)
+                .environment(\.keyVaultManager, vaultManager)
+                .environment(\.keychainManager, keychainManager)
                 .task {
                     // Wire save-on-mutation before loading so no writes are missed.
                     library.onMutation = { [library, store] in

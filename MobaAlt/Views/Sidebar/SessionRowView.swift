@@ -7,6 +7,7 @@ struct SessionRowView: View {
     var onConnect: () -> Void
 
     @Environment(SessionLibrary.self) private var library
+    @Environment(TabManager.self) private var tabManager
     @AppStorage("sidebarDensity") private var density: SidebarDensity = .comfortable
     @State private var isHovered = false
 
@@ -47,12 +48,12 @@ struct SessionRowView: View {
         .padding(.vertical, verticalPadding)
         .contentShape(Rectangle())
         .onHover { isHovered = $0 }
-        // NOTE: onTapGesture(count:2) removed — it blocked List(selection:) hit-testing
-        // for sessions nested inside DisclosureGroup folders. Connect is available via
-        // context menu and will become a double-click in Phase 2 once SSH is wired up.
+        .onTapGesture(count: 2) {
+            tabManager.openTab(for: session)
+        }
         .contextMenu {
             Button("Connect") {
-                print("[Phase 1] Connect: \(session.name)")
+                tabManager.openTab(for: session)
                 onConnect()
             }
             Button("Edit") {

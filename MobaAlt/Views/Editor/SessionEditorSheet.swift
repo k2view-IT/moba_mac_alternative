@@ -53,6 +53,24 @@ struct SessionEditorSheet: View {
                 SessionEditorAdvancedTab(draft: $draft)
                     .tabItem { Label("Advanced", systemImage: "gearshape") }
                     .tag(1)
+
+                if case .ssh(var sshConfig) = draft.protocolConfig {
+                    PortForwardingEditorView(rules: Binding(
+                        get: {
+                            if case .ssh(let c) = draft.protocolConfig { return c.portForwardingRules }
+                            return []
+                        },
+                        set: { newRules in
+                            if case .ssh(var c) = draft.protocolConfig {
+                                c.portForwardingRules = newRules
+                                draft.protocolConfig = .ssh(c)
+                            }
+                        }
+                    ))
+                    .tabItem { Label("Tunnels", systemImage: "arrow.left.arrow.right.circle") }
+                    .tag(2)
+                    .onAppear { _ = sshConfig }
+                }
             }
             .padding(.horizontal, 4)
 
@@ -75,7 +93,7 @@ struct SessionEditorSheet: View {
             .padding(.horizontal, 20)
             .padding(.vertical, 12)
         }
-        .frame(width: 480, height: 420)
+        .frame(width: 480, height: 460)
         .sheet(isPresented: $showingWizard) {
             SessionWizardView(draft: $draft)
         }

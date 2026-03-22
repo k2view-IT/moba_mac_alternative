@@ -13,6 +13,7 @@
 		0F2B50427184C1A4B261FC3B /* CommandSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65B7784CBCBB3CC3553A6D /* CommandSnippet.swift */; };
 		13EC5C45781CF6CABD6FC8FB /* SSHArgumentBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A46ADCA293E791CE683A8 /* SSHArgumentBuilderTests.swift */; };
 		19AC350B59EB58EC05948281 /* PortForwardingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7309640E52D1B99D867E669 /* PortForwardingRule.swift */; };
+		19D5C49B04C6C6D2ECBCF7B4 /* TerminalTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B22B59A6E89DA53B64C2B /* TerminalTabBar.swift */; };
 		1EE5DAB5BCAB34D5B5409C9F /* SSHKeyGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DE1C13CED0E5FF1B6A0D8 /* SSHKeyGeneratorTests.swift */; };
 		2D7CEB04E64691B1659ADFCD /* ImportConflictSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B525243495FC2E69CEE6A6B /* ImportConflictSheet.swift */; };
 		3C668202E7704C0B965DA935 /* SessionEditorAdvancedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA6ED52C57B332B90449292 /* SessionEditorAdvancedTab.swift */; };
@@ -23,6 +24,7 @@
 		4D0D24F57F6D9479AC9B71B5 /* SSHKeyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4EDA1AEC4F9D140A1E8E9 /* SSHKeyGenerator.swift */; };
 		4DC946FE11571DFCC01B2879 /* FolderDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283609AC69CF5A6DF3CB0AFE /* FolderDropDelegate.swift */; };
 		4F33225F82071CC65722DE31 /* MXTSessionsWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6013C67AABF7E770283A37 /* MXTSessionsWriter.swift */; };
+		4FFC050FFE9BB32B9CBEB837 /* PortForwardingEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3D76010560E864A9672E4D /* PortForwardingEditorView.swift */; };
 		519964207A8C1961A7E8BEA4 /* EntitlementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E429134CF80C6DD135B81292 /* EntitlementTests.swift */; };
 		53A614F0BDFD44C3957AEBE9 /* HTMLExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533099261F6B37D8A13A937A /* HTMLExporter.swift */; };
 		5698AAAC41266E2409FCF2E9 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12D7122D47696596578B8A8 /* SidebarView.swift */; };
@@ -31,8 +33,10 @@
 		5E6D296AE055030B56C25662 /* CommandSnippetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807E2C7E8B6D2E7BBE8C1E6 /* CommandSnippetTests.swift */; };
 		619E33D0F4F1E6A45F9220A6 /* SSHConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75118411C654461920770040 /* SSHConnection.swift */; };
 		64F9F6B7C89D01FCF7B09700 /* SessionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181E40A6994B69CFE105025 /* SessionStoreTests.swift */; };
+		764376B69B94DBB7BC36E4B5 /* KeyVaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064F6246E27F108D0CF1C400 /* KeyVaultView.swift */; };
 		77DA734223786755D3E49D7E /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F8A32784BEC387237FF10B /* SessionStore.swift */; };
 		7A60A3A4309A9F8AE29CF321 /* MXTSessionsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0779822F9A5B53D2ED940692 /* MXTSessionsParser.swift */; };
+		7C7A9A019AB1F51AD5A78CD1 /* TerminalTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86DCB3C968263C017733414 /* TerminalTabView.swift */; };
 		7DB24CF91557406A6AFF2612 /* TabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A076508FF27880F438181DA /* TabManager.swift */; };
 		7E02BA375D308B6672AC8F96 /* FolderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B543205A46D9AB921EB542 /* FolderRowView.swift */; };
 		7F172C5852ABD98DBF2CF383 /* KeyVaultManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45BF30EBE367EC10784667C /* KeyVaultManagerTests.swift */; };
@@ -49,6 +53,7 @@
 		AAFA299614AC550F176060F1 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E9DBA3B1B755005F6B233B /* PreferencesView.swift */; };
 		AF0BBA83D0B4C7ED99ECEF6F /* ImportSummarySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9250F010A024356FCA8B01C6 /* ImportSummarySheet.swift */; };
 		B3085E4A3C18A233E957B30E /* ConnectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1B86595FA9903755D1ACE9 /* ConnectionProtocol.swift */; };
+		B44CF38F70E902C8B5440926 /* CredentialPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8788971A96C512AF08EA9F /* CredentialPickerView.swift */; };
 		C0213BFAE1E0ECCB145DE9DC /* KeychainManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D14FD95731BF8864385112 /* KeychainManagerTests.swift */; };
 		C3A492FC5C6BAE53071DF660 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543520ADB27DF6BE54D21D7D /* ContentView.swift */; };
 		C3C32B7FB56292B4A89D5457 /* SessionLogWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6634E00EAC64443502382F7C /* SessionLogWriter.swift */; };
@@ -56,7 +61,10 @@
 		D8946D06AF6F9607A566489B /* SessionEditorBasicTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119AF30F02BD647B01F1B530 /* SessionEditorBasicTab.swift */; };
 		DEFFE10DFFA1F19280AE350C /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = 254D474F18CC2F435CEF6B00 /* SwiftTerm */; };
 		E324377FCDEB1E879B189933 /* SessionDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ECE0FF6F0FC1F90C84A8A9 /* SessionDefinition.swift */; };
+		ECCB340BC919D60A694B448E /* ActiveTunnelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED44268CE4C0E7F34D2CD87 /* ActiveTunnelsView.swift */; };
+		F190BE8EA76637FBAD30096C /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAEB4113042CE26EBFF5CD7 /* EnvironmentKeys.swift */; };
 		F66336277E9A6CC6716ADB0E /* ExportDialogSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA9330A062A2E3F9111007 /* ExportDialogSheet.swift */; };
+		F7108D079ED8B93BF636A100 /* KeyVaultUnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86972DB8EB10C0CDFA32963C /* KeyVaultUnlockView.swift */; };
 		F7B02D3B990B8D93C4E695B8 /* SessionWizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1439F2BBA729674AD7DD21 /* SessionWizardView.swift */; };
 		F8337911D7021211745CFC55 /* ImportWizardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A4B69B3438909E35616964 /* ImportWizardSheet.swift */; };
 /* End PBXBuildFile section */
@@ -74,12 +82,14 @@
 /* Begin PBXFileReference section */
 		00E9DBA3B1B755005F6B233B /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		02F4EDA1AEC4F9D140A1E8E9 /* SSHKeyGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHKeyGenerator.swift; sourceTree = "<group>"; };
+		064F6246E27F108D0CF1C400 /* KeyVaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyVaultView.swift; sourceTree = "<group>"; };
 		0779822F9A5B53D2ED940692 /* MXTSessionsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXTSessionsParser.swift; sourceTree = "<group>"; };
 		0991998F5745EFA649EAC063 /* MXTParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXTParserTests.swift; sourceTree = "<group>"; };
 		119AF30F02BD647B01F1B530 /* SessionEditorBasicTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditorBasicTab.swift; sourceTree = "<group>"; };
 		141DE1C13CED0E5FF1B6A0D8 /* SSHKeyGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHKeyGeneratorTests.swift; sourceTree = "<group>"; };
 		1C1B86595FA9903755D1ACE9 /* ConnectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionProtocol.swift; sourceTree = "<group>"; };
 		1C1D9797842FC4C5561CD11C /* TabManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManagerTests.swift; sourceTree = "<group>"; };
+		1E3D76010560E864A9672E4D /* PortForwardingEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortForwardingEditorView.swift; sourceTree = "<group>"; };
 		21D87F1ED9D2938D891B96EE /* SessionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRowView.swift; sourceTree = "<group>"; };
 		26BA2206B56D26840BBDCE33 /* SessionLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLibrary.swift; sourceTree = "<group>"; };
 		283609AC69CF5A6DF3CB0AFE /* FolderDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDropDelegate.swift; sourceTree = "<group>"; };
@@ -89,17 +99,22 @@
 		316128D9A4C2F1BD2A5FDB3E /* SidebarDensity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarDensity.swift; sourceTree = "<group>"; };
 		385255DA133CC55F96C80B36 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		39C766B0F9AC182BA9240784 /* SessionLogWriterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLogWriterTests.swift; sourceTree = "<group>"; };
+		3AAEB4113042CE26EBFF5CD7 /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		3D0B772C7AA912AFCDA53D3E /* MobaAltApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobaAltApp.swift; sourceTree = "<group>"; };
 		4AB0A29EAE452563159939FD /* ExporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExporterTests.swift; sourceTree = "<group>"; };
+		4ED44268CE4C0E7F34D2CD87 /* ActiveTunnelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveTunnelsView.swift; sourceTree = "<group>"; };
 		5181E40A6994B69CFE105025 /* SessionStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStoreTests.swift; sourceTree = "<group>"; };
 		533099261F6B37D8A13A937A /* HTMLExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLExporter.swift; sourceTree = "<group>"; };
 		543520ADB27DF6BE54D21D7D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5C8788971A96C512AF08EA9F /* CredentialPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialPickerView.swift; sourceTree = "<group>"; };
 		5DB861473C6CCD047BB3DA53 /* SSHArgumentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHArgumentBuilder.swift; sourceTree = "<group>"; };
 		5E6A1BAC8E8CA965118A2412 /* MobaAlt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MobaAlt.entitlements; sourceTree = "<group>"; };
 		65F8A32784BEC387237FF10B /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		6634E00EAC64443502382F7C /* SessionLogWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLogWriter.swift; sourceTree = "<group>"; };
 		75118411C654461920770040 /* SSHConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHConnection.swift; sourceTree = "<group>"; };
 		830A46ADCA293E791CE683A8 /* SSHArgumentBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHArgumentBuilderTests.swift; sourceTree = "<group>"; };
+		856B22B59A6E89DA53B64C2B /* TerminalTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTabBar.swift; sourceTree = "<group>"; };
+		86972DB8EB10C0CDFA32963C /* KeyVaultUnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyVaultUnlockView.swift; sourceTree = "<group>"; };
 		88A4B69B3438909E35616964 /* ImportWizardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWizardSheet.swift; sourceTree = "<group>"; };
 		88D14FD95731BF8864385112 /* KeychainManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManagerTests.swift; sourceTree = "<group>"; };
 		8A076508FF27880F438181DA /* TabManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManager.swift; sourceTree = "<group>"; };
@@ -124,6 +139,7 @@
 		F3B543205A46D9AB921EB542 /* FolderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRowView.swift; sourceTree = "<group>"; };
 		F4F1EC2D00B83A09526F4133 /* MobaAlt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobaAlt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F574928D39B3B1D843DE3E55 /* SessionConflictResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionConflictResolver.swift; sourceTree = "<group>"; };
+		F86DCB3C968263C017733414 /* TerminalTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTabView.swift; sourceTree = "<group>"; };
 		FDA6ED52C57B332B90449292 /* SessionEditorAdvancedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditorAdvancedTab.swift; sourceTree = "<group>"; };
 		FEA9344F6873C7E617476017 /* SessionFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFolder.swift; sourceTree = "<group>"; };
 		FEC7A21CA44089B0327CD5F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -217,6 +233,15 @@
 			path = AppShell;
 			sourceTree = "<group>";
 		};
+		4EDFFDE1605DC6314E6552BA /* Terminal */ = {
+			isa = PBXGroup;
+			children = (
+				856B22B59A6E89DA53B64C2B /* TerminalTabBar.swift */,
+				F86DCB3C968263C017733414 /* TerminalTabView.swift */,
+			);
+			path = Terminal;
+			sourceTree = "<group>";
+		};
 		50E185BCDBCB3851AF94B5C5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,13 +268,35 @@
 			isa = PBXGroup;
 			children = (
 				4521340807E813A78D74114B /* AppShell */,
+				87BB1BD8A5E17E3AA7ACA765 /* Credentials */,
 				2D6BFF4F3F36AA3CBD940466 /* Editor */,
 				ED02E4D54443D918E228E7EA /* Export */,
 				C0D0284C290999DEBA8AD6BD /* Import */,
 				1830AC31C34D0AA628C27CF2 /* Preferences */,
 				C850702C7FB904641CA1D990 /* Sidebar */,
+				74F41703B610D2663F03E577 /* SSH */,
+				4EDFFDE1605DC6314E6552BA /* Terminal */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		74F41703B610D2663F03E577 /* SSH */ = {
+			isa = PBXGroup;
+			children = (
+				4ED44268CE4C0E7F34D2CD87 /* ActiveTunnelsView.swift */,
+				1E3D76010560E864A9672E4D /* PortForwardingEditorView.swift */,
+			);
+			path = SSH;
+			sourceTree = "<group>";
+		};
+		87BB1BD8A5E17E3AA7ACA765 /* Credentials */ = {
+			isa = PBXGroup;
+			children = (
+				5C8788971A96C512AF08EA9F /* CredentialPickerView.swift */,
+				86972DB8EB10C0CDFA32963C /* KeyVaultUnlockView.swift */,
+				064F6246E27F108D0CF1C400 /* KeyVaultView.swift */,
+			);
+			path = Credentials;
 			sourceTree = "<group>";
 		};
 		8A142E01200C17B36C9631A4 = {
@@ -288,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				9010B436AB15DCECE30609B6 /* AtomicFileWriter.swift */,
+				3AAEB4113042CE26EBFF5CD7 /* EnvironmentKeys.swift */,
 				F574928D39B3B1D843DE3E55 /* SessionConflictResolver.swift */,
 				5DB861473C6CCD047BB3DA53 /* SSHArgumentBuilder.swift */,
 			);
@@ -440,10 +488,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECCB340BC919D60A694B448E /* ActiveTunnelsView.swift in Sources */,
 				0C0FD93EF4F8C4BDBC9D92E7 /* AtomicFileWriter.swift in Sources */,
 				0F2B50427184C1A4B261FC3B /* CommandSnippet.swift in Sources */,
 				B3085E4A3C18A233E957B30E /* ConnectionProtocol.swift in Sources */,
 				C3A492FC5C6BAE53071DF660 /* ContentView.swift in Sources */,
+				B44CF38F70E902C8B5440926 /* CredentialPickerView.swift in Sources */,
+				F190BE8EA76637FBAD30096C /* EnvironmentKeys.swift in Sources */,
 				F66336277E9A6CC6716ADB0E /* ExportDialogSheet.swift in Sources */,
 				4DC946FE11571DFCC01B2879 /* FolderDropDelegate.swift in Sources */,
 				7E02BA375D308B6672AC8F96 /* FolderRowView.swift in Sources */,
@@ -453,10 +504,13 @@
 				F8337911D7021211745CFC55 /* ImportWizardSheet.swift in Sources */,
 				5DCFEA743E638A7E46927478 /* JSONExporter.swift in Sources */,
 				D3461D5E024CC814713BF5BD /* KeyVaultManager.swift in Sources */,
+				F7108D079ED8B93BF636A100 /* KeyVaultUnlockView.swift in Sources */,
+				764376B69B94DBB7BC36E4B5 /* KeyVaultView.swift in Sources */,
 				495A1A4E71754454CA78BA52 /* KeychainManager.swift in Sources */,
 				7A60A3A4309A9F8AE29CF321 /* MXTSessionsParser.swift in Sources */,
 				4F33225F82071CC65722DE31 /* MXTSessionsWriter.swift in Sources */,
 				45630B56E6FB74CD41A71DE9 /* MobaAltApp.swift in Sources */,
+				4FFC050FFE9BB32B9CBEB837 /* PortForwardingEditorView.swift in Sources */,
 				19AC350B59EB58EC05948281 /* PortForwardingRule.swift in Sources */,
 				AAFA299614AC550F176060F1 /* PreferencesView.swift in Sources */,
 				A996800F8ABAC74632D8244C /* SSHArgumentBuilder.swift in Sources */,
@@ -476,6 +530,8 @@
 				3DF932162DAAB7925B33BEB7 /* SidebarDensity.swift in Sources */,
 				5698AAAC41266E2409FCF2E9 /* SidebarView.swift in Sources */,
 				7DB24CF91557406A6AFF2612 /* TabManager.swift in Sources */,
+				19D5C49B04C6C6D2ECBCF7B4 /* TerminalTabBar.swift in Sources */,
+				7C7A9A019AB1F51AD5A78CD1 /* TerminalTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
