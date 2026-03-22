@@ -16,7 +16,7 @@
 ### SSH
 
 - [x] **SSH-01**: User can connect to an SSH host and get a terminal session in a new tab
-- [ ] **SSH-02**: SSH sessions support both password and SSH key authentication
+- [x] **SSH-02**: SSH sessions support both password and SSH key authentication
 - [x] **SSH-03**: SSH respects the user's existing ~/.ssh/config and known_hosts files
 - [x] **SSH-04**: User can enable SSH agent forwarding per session (ForwardAgent)
 - [x] **SSH-05**: User can configure port forwarding rules per session (local, remote, dynamic)
@@ -56,10 +56,10 @@
 
 ### Credentials
 
-- [ ] **CRED-01**: SSH and RDP/VNC passwords are stored securely in macOS Keychain
-- [ ] **CRED-02**: SSH private keys are stored in an AES-GCM encrypted local vault file
-- [ ] **CRED-03**: User can unlock the SSH key vault with a master password
-- [ ] **CRED-04**: User can add, view, and remove stored credentials per session
+- [x] **CRED-01**: SSH and RDP/VNC passwords are stored securely in macOS Keychain
+- [x] **CRED-02**: SSH private keys are stored in an AES-GCM encrypted local vault file
+- [x] **CRED-03**: User can unlock the SSH key vault with a master password
+- [x] **CRED-04**: User can add, view, and remove stored credentials per session
 
 ### Distribution
 
@@ -117,7 +117,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DIST-02 | Phase 1 | Complete |
 | DIST-03 | Phase 1 | Complete |
 | SSH-01 | Phase 2 | Complete |
-| SSH-02 | Phase 2 | Pending |
+| SSH-02 | Phase 2 | Complete |
 | SSH-03 | Phase 2 | Complete |
 | SSH-04 | Phase 2 | Complete |
 | SSH-05 | Phase 2 | Complete |
@@ -128,10 +128,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TERM-03 | Phase 2 | Complete |
 | TERM-04 | Phase 2 | Complete |
 | TERM-05 | Phase 2 | Complete |
-| CRED-01 | Phase 2 | Pending |
-| CRED-02 | Phase 2 | Pending |
-| CRED-03 | Phase 2 | Pending |
-| CRED-04 | Phase 2 | Pending |
+| CRED-01 | Phase 2 | Complete |
+| CRED-02 | Phase 2 | Complete |
+| CRED-03 | Phase 2 | Complete |
+| CRED-04 | Phase 2 | Complete |
 | SFTP-01 | Phase 3 | Pending |
 | SFTP-02 | Phase 3 | Pending |
 | SFTP-03 | Phase 3 | Pending |
