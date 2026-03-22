@@ -136,14 +136,3 @@ struct ContentView: View {
     }
 }
 
-// MARK: - SFTPPanelView stub
-
-// TODO: 03-04 will create SFTPPanelView.swift — remove this stub then.
-private struct SFTPPanelView: View {
-    let service: SFTPBrowserService
-    var body: some View {
-        Text("SFTP Panel (loading...)")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(nsColor: .windowBackgroundColor))
-    }
-}
