@@ -8,6 +8,7 @@ struct ContentView: View {
     @State private var editorTargetFolderId: UUID?
     @State private var tabManager = TabManager()
     @State private var showingKeyVault = false
+    @State private var showingSnippets = false
 
     var body: some View {
         NavigationSplitView {
@@ -46,6 +47,9 @@ struct ContentView: View {
         .sheet(isPresented: $showingKeyVault) {
             KeyVaultView()
         }
+        .sheet(isPresented: $showingSnippets) {
+            CommandSnippetsView()
+        }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
@@ -54,6 +58,14 @@ struct ContentView: View {
                     Label("SSH Key Vault", systemImage: "person.badge.key")
                 }
                 .help("Manage SSH Key Vault")
+            }
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    showingSnippets = true
+                } label: {
+                    Label("Command Snippets", systemImage: "text.alignleft")
+                }
+                .help("Show command snippet library")
             }
         }
     }

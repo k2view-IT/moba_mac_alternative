@@ -3,6 +3,7 @@ import SwiftUI
 @main
 struct MobaAltApp: App {
     @State private var library = SessionLibrary()
+    @State private var snippetStore = SnippetStore()
     private let store = SessionStore()
     private let vaultManager = KeyVaultManager()
     private let keychainManager = KeychainManager()
@@ -15,6 +16,7 @@ struct MobaAltApp: App {
         WindowGroup {
             ContentView()
                 .environment(library)
+                .environment(snippetStore)
                 .environment(\.keyVaultManager, vaultManager)
                 .environment(\.keychainManager, keychainManager)
                 .task {
