@@ -30,7 +30,7 @@ final class SSHConnection: LocalProcessTerminalViewDelegate {
     var logWriter: SessionLogWriter?
 
     /// The underlying SwiftTerm NSView. Nil until start() is called.
-    private(set) var terminalView: LocalProcessTerminalView?
+    private(set) var terminalView: MobaTerminalView?
 
     /// Path of the temporary SSH_ASKPASS script, cleaned up on terminate().
     private var askPassScriptPath: String?
@@ -51,7 +51,7 @@ final class SSHConnection: LocalProcessTerminalViewDelegate {
     func start() {
         guard case .ssh(let sshConfig) = session.protocolConfig else { return }
 
-        let view = LocalProcessTerminalView(frame: .zero)
+        let view = MobaTerminalView(frame: .zero)
         view.processDelegate = self
         self.terminalView = view
 
@@ -149,6 +149,17 @@ final class SSHConnection: LocalProcessTerminalViewDelegate {
             self.terminalView?.processDelegate = nil
             self.terminalView = nil
             self.cleanUpAskPassScript()
+        }
+    }
+
+    /// Auto-copy: whenever the user finishes selecting text, push it to the clipboard.
+    /// This is the MobaXterm "select = copy" behaviour.
+    nonisolated func selectionChanged(source: TerminalView) {
+        let selected = source.getSelectedText()
+        guard !selected.isEmpty else { return }
+        DispatchQueue.main.async {
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setString(selected, forType: .string)
         }
     }
 

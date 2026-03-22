@@ -14,6 +14,7 @@
 		13EC5C45781CF6CABD6FC8FB /* SSHArgumentBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A46ADCA293E791CE683A8 /* SSHArgumentBuilderTests.swift */; };
 		19AC350B59EB58EC05948281 /* PortForwardingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7309640E52D1B99D867E669 /* PortForwardingRule.swift */; };
 		19D5C49B04C6C6D2ECBCF7B4 /* TerminalTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B22B59A6E89DA53B64C2B /* TerminalTabBar.swift */; };
+		DA5A203499CE40F3B181FDD8 /* MobaTerminalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F330B3FCF7834C3C97DF39C1 /* MobaTerminalView.swift */; };
 		1EE5DAB5BCAB34D5B5409C9F /* SSHKeyGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DE1C13CED0E5FF1B6A0D8 /* SSHKeyGeneratorTests.swift */; };
 		2D7CEB04E64691B1659ADFCD /* ImportConflictSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B525243495FC2E69CEE6A6B /* ImportConflictSheet.swift */; };
 		3C668202E7704C0B965DA935 /* SessionEditorAdvancedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA6ED52C57B332B90449292 /* SessionEditorAdvancedTab.swift */; };
@@ -144,6 +145,7 @@
 		F4F1EC2D00B83A09526F4133 /* MobaAlt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobaAlt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F574928D39B3B1D843DE3E55 /* SessionConflictResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionConflictResolver.swift; sourceTree = "<group>"; };
 		F86DCB3C968263C017733414 /* TerminalTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTabView.swift; sourceTree = "<group>"; };
+		F330B3FCF7834C3C97DF39C1 /* MobaTerminalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobaTerminalView.swift; sourceTree = "<group>"; };
 		FDA6ED52C57B332B90449292 /* SessionEditorAdvancedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditorAdvancedTab.swift; sourceTree = "<group>"; };
 		FEA9344F6873C7E617476017 /* SessionFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFolder.swift; sourceTree = "<group>"; };
 		FEC7A21CA44089B0327CD5F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				856B22B59A6E89DA53B64C2B /* TerminalTabBar.swift */,
+				F330B3FCF7834C3C97DF39C1 /* MobaTerminalView.swift */,
 				F86DCB3C968263C017733414 /* TerminalTabView.swift */,
 			);
 			path = Terminal;
@@ -539,6 +542,7 @@
 				9E6847185F0E4CCF4191DFF6 /* SnippetStore.swift in Sources */,
 				7DB24CF91557406A6AFF2612 /* TabManager.swift in Sources */,
 				19D5C49B04C6C6D2ECBCF7B4 /* TerminalTabBar.swift in Sources */,
+				DA5A203499CE40F3B181FDD8 /* MobaTerminalView.swift in Sources */,
 				7C7A9A019AB1F51AD5A78CD1 /* TerminalTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
