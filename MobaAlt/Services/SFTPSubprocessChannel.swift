@@ -23,13 +23,12 @@ enum SFTPError: Error, LocalizedError {
 
 /// Real SFTP transport that spawns /usr/bin/sftp over an existing SSH ControlMaster socket.
 ///
-/// The companion SFTPBrowserService.connect() waits for the ControlMaster socket before
-/// constructing this object, so the socket is guaranteed to exist at init time.
+/// Internally, the sftp process is launched in interactive mode so it presents the
+/// "sftp> " prompt for each command. readUntilPrompt() accumulates stdout bytes until
+/// the "sftp> " marker appears, letting us issue one command at a time and capture output.
 ///
-/// Internally, the sftp process is launched without -b (batch mode flag) so that it
-/// presents the "sftp> " prompt for each command. readUntilPrompt() accumulates stdout
-/// bytes until the "sftp> " marker appears, letting us issue one command at a time and
-/// capture its output.
+/// stdout is read via readabilityHandler (non-blocking) rather than availableData (blocking)
+/// to avoid freezing the Swift Concurrency cooperative thread pool.
 final class SFTPSubprocessChannel: SFTPChannel, @unchecked Sendable {
 
     // MARK: - State
@@ -43,15 +42,17 @@ final class SFTPSubprocessChannel: SFTPChannel, @unchecked Sendable {
     private let stdoutPipe = Pipe()
     private let stderrPipe = Pipe()
 
+    /// Accumulates stdout bytes between readUntilPrompt calls.
     private var stdoutBuffer = Data()
+
+    /// Protects pendingContinuation and bufferedChunks from concurrent access between
+    /// the readabilityHandler dispatch queue and the async callers.
+    private let lock = NSLock()
+    private var pendingContinuation: CheckedContinuation<Data, Never>?
+    private var bufferedChunks: [Data] = []
 
     // MARK: - Init
 
-    /// Creates an SFTP channel over an existing ControlMaster socket.
-    ///
-    /// - Parameters:
-    ///   - socketPath: Path to the Unix socket produced by SSHArgumentBuilder.controlPath(for:).
-    ///   - config: The SSH configuration for the session (username, hostname).
     init(socketPath: String, config: SSHConfig) {
         self.socketPath = socketPath
         self.username = config.username
@@ -63,35 +64,52 @@ final class SFTPSubprocessChannel: SFTPChannel, @unchecked Sendable {
             "-o", "ControlPath=\(socketPath)",
             "\(config.username)@\(config.hostname)"
         ]
-        process.standardInput = stdinPipe
+        process.standardInput  = stdinPipe
         process.standardOutput = stdoutPipe
-        process.standardError = stderrPipe
+        process.standardError  = stderrPipe
     }
 
     // MARK: - SFTPChannel
 
     func connect() async throws {
+        // Install the readabilityHandler BEFORE launching the process so no bytes are missed.
+        stdoutPipe.fileHandleForReading.readabilityHandler = { [weak self] handle in
+            guard let self else { return }
+            let data = handle.availableData  // blocking OK: this runs on a dedicated I/O thread
+            self.lock.lock()
+            if let cont = self.pendingContinuation {
+                self.pendingContinuation = nil
+                self.lock.unlock()
+                cont.resume(returning: data)
+            } else {
+                self.bufferedChunks.append(data)
+                self.lock.unlock()
+            }
+        }
+
         do {
             try process.run()
         } catch {
+            stdoutPipe.fileHandleForReading.readabilityHandler = nil
             throw SFTPError.connectionFailed("Process launch failed: \(error.localizedDescription)")
         }
 
-        // Consume the startup banner + first "sftp> " prompt.
-        let banner = try await readUntilPrompt(timeout: 15)
-        if banner.isEmpty {
-            throw SFTPError.connectionFailed("sftp process did not emit a ready prompt")
-        }
+        // Consume the startup banner and first "sftp> " prompt (up to 15 s).
+        _ = try await readUntilPrompt(timeout: 15)
     }
 
     func disconnect() async {
         send("bye")
-        // Give the process a moment to shut down gracefully.
         try? await Task.sleep(nanoseconds: 200_000_000)
-        if process.isRunning {
-            process.terminate()
-        }
+        if process.isRunning { process.terminate() }
         process.waitUntilExit()
+        stdoutPipe.fileHandleForReading.readabilityHandler = nil
+        // Unblock any pending waiter with empty data (EOF signal).
+        lock.lock()
+        let cont = pendingContinuation
+        pendingContinuation = nil
+        lock.unlock()
+        cont?.resume(returning: Data())
     }
 
     func send(_ command: String) {
@@ -130,54 +148,80 @@ final class SFTPSubprocessChannel: SFTPChannel, @unchecked Sendable {
         }
     }
 
-    // MARK: - Output reading
+    // MARK: - Non-blocking output reading
 
-    /// Reads stdout until the "sftp> " prompt appears (indicating the previous command finished).
-    /// Returns everything before the final prompt marker.
+    /// Waits for the next available chunk of stdout data from the readabilityHandler.
+    /// Returns empty Data on EOF.
+    private func nextChunk() async -> Data {
+        lock.lock()
+        if !bufferedChunks.isEmpty {
+            let chunk = bufferedChunks.removeFirst()
+            lock.unlock()
+            return chunk
+        }
+        return await withCheckedContinuation { continuation in
+            pendingContinuation = continuation
+            lock.unlock()
+        }
+    }
+
+    /// Reads stdout until the "sftp> " prompt appears (non-blocking).
+    /// Returns everything printed before the prompt.
     private func readUntilPrompt(timeout: TimeInterval) async throws -> String {
         let promptMarker = Data("sftp> ".utf8)
-        let deadline = Date().addingTimeInterval(timeout)
-        let pollInterval: UInt64 = 50_000_000 // 50ms
 
-        while Date() < deadline {
-            // Pull any available bytes from the pipe (non-blocking).
-            let available = stdoutPipe.fileHandleForReading.availableData
-            if !available.isEmpty {
-                stdoutBuffer.append(available)
-            }
-
-            if let range = stdoutBuffer.range(of: promptMarker) {
-                // Extract output up to (not including) the prompt.
-                let outputData = stdoutBuffer.subdata(in: stdoutBuffer.startIndex..<range.lowerBound)
-                // Keep anything after the prompt in the buffer (should be empty normally).
-                stdoutBuffer = Data(stdoutBuffer[range.upperBound...])
-                return String(data: outputData, encoding: .utf8) ?? ""
-            }
-
-            // Process may have exited without a prompt (e.g., error).
-            if !process.isRunning && stdoutBuffer.range(of: promptMarker) == nil {
-                let remainder = String(data: stdoutBuffer, encoding: .utf8) ?? ""
-                stdoutBuffer = Data()
-                return remainder
-            }
-
-            try await Task.sleep(nanoseconds: pollInterval)
+        // Serve from existing buffer if the prompt is already there.
+        if let range = stdoutBuffer.range(of: promptMarker) {
+            let outputData = stdoutBuffer.subdata(in: stdoutBuffer.startIndex ..< range.lowerBound)
+            stdoutBuffer = Data(stdoutBuffer[range.upperBound...])
+            return String(data: outputData, encoding: .utf8) ?? ""
         }
 
-        throw SFTPError.commandFailed("Timed out waiting for sftp prompt")
+        return try await withThrowingTaskGroup(of: String.self) { group in
+            // Reader task: accumulates chunks until the prompt appears.
+            group.addTask { [self] in
+                while true {
+                    try Task.checkCancellation()
+                    let chunk = await self.nextChunk()
+
+                    if chunk.isEmpty {
+                        // EOF — process exited before prompt appeared.
+                        let result = String(data: self.stdoutBuffer, encoding: .utf8) ?? ""
+                        self.stdoutBuffer = Data()
+                        return result
+                    }
+
+                    self.stdoutBuffer.append(chunk)
+
+                    if let range = self.stdoutBuffer.range(of: promptMarker) {
+                        let outputData = self.stdoutBuffer.subdata(in: self.stdoutBuffer.startIndex ..< range.lowerBound)
+                        self.stdoutBuffer = Data(self.stdoutBuffer[range.upperBound...])
+                        return String(data: outputData, encoding: .utf8) ?? ""
+                    }
+                }
+            }
+
+            // Timeout task.
+            group.addTask {
+                try await Task.sleep(nanoseconds: UInt64(timeout * 1_000_000_000))
+                throw SFTPError.commandFailed("Timed out waiting for sftp prompt")
+            }
+
+            do {
+                let result = try await group.next()!
+                group.cancelAll()
+                return result
+            } catch {
+                group.cancelAll()
+                throw error
+            }
+        }
     }
 
     // MARK: - ls output parsing
 
     private func parseLsOutput(_ output: String, basePath: String) -> [SFTPItem] {
-        let lines = output.components(separatedBy: "\n")
-        var results: [SFTPItem] = []
-        for line in lines {
-            if let item = parseLsLine(line, basePath: basePath) {
-                results.append(item)
-            }
-        }
-        return results
+        output.components(separatedBy: "\n").compactMap { parseLsLine($0, basePath: basePath) }
     }
 
     /// Parses a single Unix `ls -la` line into an SFTPItem.
@@ -187,39 +231,26 @@ final class SFTPSubprocessChannel: SFTPChannel, @unchecked Sendable {
     ///
     /// Returns nil for "." and ".." entries, header lines, or lines that don't parse.
     func parseLsLine(_ line: String, basePath: String) -> SFTPItem? {
-        // Skip blank lines and total lines (e.g. "total 48")
         let trimmed = line.trimmingCharacters(in: .whitespaces)
         guard !trimmed.isEmpty, !trimmed.hasPrefix("total ") else { return nil }
 
-        // Tokenise: permissions links owner group size month day time/year name
-        // The name may contain spaces so we split the first 8 tokens conservatively.
-        var tokens = trimmed.components(separatedBy: .whitespaces).filter { !$0.isEmpty }
+        let tokens = trimmed.components(separatedBy: .whitespaces).filter { !$0.isEmpty }
         guard tokens.count >= 9 else { return nil }
 
         let permissions = tokens[0]
         guard permissions.count == 10 else { return nil }
 
         let isDirectory = permissions.hasPrefix("d")
-        let sizeStr = tokens[4]
-        let size = Int64(sizeStr) ?? 0
-
-        // Month (index 5), Day (6), Time/Year (7), Name starts at index 8
-        let month = tokens[5]
-        let day = tokens[6]
-        let timeOrYear = tokens[7]
-        // Name: reconstruct from index 8 onwards (handles spaces in names)
+        let size = Int64(tokens[4]) ?? 0
         let name = tokens[8...].joined(separator: " ")
-
         guard name != ".", name != ".." else { return nil }
 
-        let modificationDate = parseDate(month: month, day: day, timeOrYear: timeOrYear) ?? Date(timeIntervalSince1970: 0)
-
+        let modificationDate = parseDate(month: tokens[5], day: tokens[6], timeOrYear: tokens[7]) ?? Date(timeIntervalSince1970: 0)
         let normalizedBase = basePath.hasSuffix("/") ? basePath : basePath + "/"
-        let path = normalizedBase + name
 
         return SFTPItem(
             name: name,
-            path: path,
+            path: normalizedBase + name,
             size: size,
             modificationDate: modificationDate,
             isDirectory: isDirectory,
@@ -228,24 +259,17 @@ final class SFTPSubprocessChannel: SFTPChannel, @unchecked Sendable {
     }
 
     private func parseDate(month: String, day: String, timeOrYear: String) -> Date? {
-        // sftp ls -la outputs either "HH:mm" (current year) or "YYYY" (older files).
         let currentYear = Calendar.current.component(.year, from: Date())
         let dayPadded = day.count == 1 ? " \(day)" : day
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
 
         if timeOrYear.contains(":") {
-            // Format: "MMM dd HH:mm" — assume current year
-            let rawString = "\(month) \(dayPadded) \(timeOrYear) \(currentYear)"
-            let formatter = DateFormatter()
-            formatter.locale = Locale(identifier: "en_US_POSIX")
             formatter.dateFormat = "MMM dd HH:mm yyyy"
-            return formatter.date(from: rawString)
+            return formatter.date(from: "\(month) \(dayPadded) \(timeOrYear) \(currentYear)")
         } else {
-            // Format: "MMM dd YYYY"
-            let rawString = "\(month) \(dayPadded) \(timeOrYear)"
-            let formatter = DateFormatter()
-            formatter.locale = Locale(identifier: "en_US_POSIX")
             formatter.dateFormat = "MMM dd yyyy"
-            return formatter.date(from: rawString)
+            return formatter.date(from: "\(month) \(dayPadded) \(timeOrYear)")
         }
     }
 }
