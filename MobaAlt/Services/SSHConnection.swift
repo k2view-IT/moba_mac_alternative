@@ -152,14 +152,12 @@ final class SSHConnection: LocalProcessTerminalViewDelegate {
         }
     }
 
-    /// Auto-copy: whenever the user finishes selecting text, push it to the clipboard.
-    /// This is the MobaXterm "select = copy" behaviour.
+    /// Auto-copy: whenever the user finishes selecting text, invoke SwiftTerm's
+    /// built-in copy handler which pushes the selection to NSPasteboard.
+    /// This is the MobaXterm "select = copy" behaviour — no Cmd+C needed.
     nonisolated func selectionChanged(source: TerminalView) {
-        let selected = source.getSelectedText()
-        guard !selected.isEmpty else { return }
         DispatchQueue.main.async {
-            NSPasteboard.general.clearContents()
-            NSPasteboard.general.setString(selected, forType: .string)
+            source.copy(source)
         }
     }
 
