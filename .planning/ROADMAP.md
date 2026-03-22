@@ -46,12 +46,15 @@ Plans:
   3. User can have multiple SSH sessions open simultaneously in tabs and switch between them without lag or lost state
   4. User can authenticate with password (stored in macOS Keychain) or SSH key (from encrypted vault unlocked with master password), and can add/view/remove credentials per session
   5. User can configure agent forwarding, port forwarding rules (local/remote/dynamic), and view active tunnels while connected
-**Plans**: TBD
+**Plans**: 6 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
-- [ ] 02-03: TBD
+- [ ] 02-01-PLAN.md — SwiftTerm SPM dependency, PortForwardingRule/CommandSnippet models, SSHConfig extended, Wave 0 test scaffolds (Wave 1)
+- [ ] 02-02-PLAN.md — KeychainManager (Security.framework) and KeyVaultManager (AES-256-GCM) credential services with full unit tests (Wave 1, parallel)
+- [ ] 02-03-PLAN.md — SSHArgumentBuilder, TabManager, SSHConnection, SessionLogWriter, SSHKeyGenerator core services with tests (Wave 2)
+- [ ] 02-04-PLAN.md — Terminal tab UI (TerminalTabBar, TerminalTabView, ContentView wiring) and credential UI views (Wave 3)
+- [ ] 02-05-PLAN.md — Port forwarding editor, active tunnels view, command snippets (Wave 3, parallel)
+- [ ] 02-06-PLAN.md — Human verification checkpoint: end-to-end SSH, auth, terminal, and advanced feature flows (Wave 4)
 
 ### Phase 3: SFTP File Browser
 **Goal**: Users can browse and transfer files on remote hosts through a visual SFTP panel that opens alongside every SSH terminal session
@@ -89,6 +92,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. App Foundation and Session Management | 3/3 | Complete   | 2026-03-20 |
-| 2. SSH Terminal and Credentials | 0/3 | Not started | - |
+| 2. SSH Terminal and Credentials | 0/6 | Not started | - |
 | 3. SFTP File Browser | 0/2 | Not started | - |
 | 4. RDP, VNC, and X11 Forwarding | 0/2 | Not started | - |
