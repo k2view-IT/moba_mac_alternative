@@ -202,8 +202,14 @@ struct SFTPFileListView: View {
             }
         }
         Divider()
-        Button("Download") {
-            downloadWithPanel(item: item)
+        if selection.count > 1 {
+            Button("Download \(selection.count) Items") {
+                batchDownloadWithPanel()
+            }
+        } else {
+            Button("Download") {
+                downloadWithPanel(item: item)
+            }
         }
         Button("Copy Path") {
             NSPasteboard.general.clearContents()
@@ -234,10 +240,31 @@ struct SFTPFileListView: View {
     private func downloadWithPanel(item: SFTPItem) {
         let panel = NSSavePanel()
         panel.nameFieldStringValue = item.name
-        panel.begin { response in
-            guard response == .OK, let url = panel.url else { return }
+        panel.canCreateDirectories = true
+        if panel.runModal() == .OK, let url = panel.url {
             Task {
                 try? await service.download(remotePath: item.path, toLocalURL: url)
+            }
+        }
+    }
+
+    private func batchDownloadWithPanel() {
+        let panel = NSOpenPanel()
+        panel.canChooseDirectories = true
+        panel.canChooseFiles = false
+        panel.canCreateDirectories = true
+        panel.prompt = "Choose Destination"
+        panel.message = "Choose a folder to download \(selection.count) items into"
+        if panel.runModal() == .OK, let destDir = panel.url {
+            let paths = Array(selection)
+            for path in paths {
+                let name = (path as NSString).lastPathComponent
+                Task {
+                    try? await service.download(
+                        remotePath: path,
+                        toLocalURL: destDir.appendingPathComponent(name)
+                    )
+                }
             }
         }
     }
