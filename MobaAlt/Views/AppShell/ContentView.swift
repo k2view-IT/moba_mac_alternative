@@ -26,14 +26,7 @@ struct ContentView: View {
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
-                VStack(spacing: 0) {
-                    TerminalTabBar(tabManager: tabManager)
-                    Divider()
-                    if let activeTab = tabManager.tabs.first(where: { $0.id == tabManager.activeTabId }) {
-                        TerminalTabView(connection: activeTab.connection)
-                            .id(activeTab.id)
-                    }
-                }
+                detailBody
             }
         }
         .environment(tabManager)
@@ -67,6 +60,90 @@ struct ContentView: View {
                 }
                 .help("Show command snippet library")
             }
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    guard let activeTab = tabManager.tabs.first(where: { $0.id == tabManager.activeTabId }) else { return }
+                    let positions: [SFTPPanelPosition] = SFTPPanelPosition.allCases
+                    let current = activeTab.sftpPosition
+                    let next = positions[(positions.firstIndex(of: current)! + 1) % positions.count]
+                    tabManager.setSFTPPosition(next, for: activeTab.id)
+                } label: {
+                    Label("SFTP Panel", systemImage: sftpToolbarIcon)
+                }
+                .help("Toggle SFTP Panel position (Left / Right / Bottom / Hidden)")
+            }
         }
+    }
+
+    // MARK: - Detail body
+
+    /// The terminal stack: tab bar + active terminal view.
+    @ViewBuilder
+    private var terminalStack: some View {
+        VStack(spacing: 0) {
+            TerminalTabBar(tabManager: tabManager)
+            Divider()
+            if let activeTab = tabManager.tabs.first(where: { $0.id == tabManager.activeTabId }) {
+                TerminalTabView(connection: activeTab.connection)
+                    .id(activeTab.id)
+            }
+        }
+    }
+
+    /// Full detail area with optional SFTP panel based on active tab's sftpPosition.
+    @ViewBuilder
+    private var detailBody: some View {
+        if let activeTab = tabManager.tabs.first(where: { $0.id == tabManager.activeTabId }) {
+            switch activeTab.sftpPosition {
+            case .left:
+                HSplitView {
+                    SFTPPanelView(service: activeTab.sftpService)
+                        .frame(minWidth: 180, idealWidth: 280, maxWidth: 500)
+                    terminalStack
+                }
+            case .right:
+                HSplitView {
+                    terminalStack
+                    SFTPPanelView(service: activeTab.sftpService)
+                        .frame(minWidth: 180, idealWidth: 280, maxWidth: 500)
+                }
+            case .bottom:
+                VSplitView {
+                    terminalStack
+                    SFTPPanelView(service: activeTab.sftpService)
+                        .frame(minHeight: 150, idealHeight: 260, maxHeight: 500)
+                }
+            case .hidden:
+                terminalStack
+            }
+        } else {
+            terminalStack
+        }
+    }
+
+    // MARK: - SFTP toolbar icon
+
+    private var sftpToolbarIcon: String {
+        guard let activeTab = tabManager.tabs.first(where: { $0.id == tabManager.activeTabId }) else {
+            return "sidebar.leading"
+        }
+        switch activeTab.sftpPosition {
+        case .left:   return "sidebar.leading"
+        case .right:  return "sidebar.trailing"
+        case .bottom: return "rectangle.bottomthird.inset.filled"
+        case .hidden: return "xmark.rectangle"
+        }
+    }
+}
+
+// MARK: - SFTPPanelView stub
+
+// TODO: 03-04 will create SFTPPanelView.swift — remove this stub then.
+private struct SFTPPanelView: View {
+    let service: SFTPBrowserService
+    var body: some View {
+        Text("SFTP Panel (loading...)")
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(nsColor: .windowBackgroundColor))
     }
 }
