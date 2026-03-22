@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 03-sftp-file-browser 03-01-PLAN.md
-last_updated: "2026-03-22T14:53:54.882Z"
+stopped_at: Completed 03-sftp-file-browser 03-02-PLAN.md
+last_updated: "2026-03-22T15:01:08.896Z"
 last_activity: 2026-03-20 -- Phase 1 human-verify approved; all 3 plans complete
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 15
-  completed_plans: 9
+  completed_plans: 10
   percent: 25
 ---
 
@@ -59,6 +59,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 02-ssh-terminal-sessions P04 | 10 | 2 tasks | 10 files |
 | Phase 02-ssh-terminal-sessions P05 | 525553 | 2 tasks | 8 files |
 | Phase 03-sftp-file-browser P01 | 15 | 2 tasks | 7 files |
+| Phase 03-sftp-file-browser P02 | 343 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -93,6 +94,9 @@ Recent decisions affecting current work:
 - [Phase 03-sftp-file-browser]: SFTPChannel protocol has no actor annotation — concrete types choose their own context; MockSFTPChannel in main module for @testable import without flags
 - [Phase 03-sftp-file-browser]: TransferStatus is non-Equatable because failed(Error) associated value is not Equatable — isCompleted/isFailed computed vars provide state inspection
 - [Phase 03-sftp-file-browser]: SFTPBrowserService convenience init uses MockSFTPChannel placeholder (03-02 will replace with SFTPSubprocessChannel); SFTPItem.id uses path String for stable identity across directory refreshes
+- [Phase 03-sftp-file-browser]: SFTPSubprocessChannel uses interactive sftp (no -b flag) with readUntilPrompt() for per-command stdout capture
+- [Phase 03-sftp-file-browser]: waitForSocket() skipped for MockSFTPChannel via type check in connect() to keep tests fast without protocol changes
+- [Phase 03-sftp-file-browser]: upload/download progress uses single-shot polling rather than sftp verbose output parsing — simpler and more robust
 
 ### Pending Todos
 
@@ -106,6 +110,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-22T14:53:48.168Z
-Stopped at: Completed 03-sftp-file-browser 03-01-PLAN.md
+Last session: 2026-03-22T15:01:08.894Z
+Stopped at: Completed 03-sftp-file-browser 03-02-PLAN.md
 Resume file: None
