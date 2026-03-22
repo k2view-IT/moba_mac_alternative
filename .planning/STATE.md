@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 03-sftp-file-browser 03-02-PLAN.md
-last_updated: "2026-03-22T15:01:08.896Z"
+stopped_at: Completed 03-sftp-file-browser 03-04-PLAN.md
+last_updated: "2026-03-22T15:12:44.000Z"
 last_activity: 2026-03-20 -- Phase 1 human-verify approved; all 3 plans complete
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 15
-  completed_plans: 10
+  completed_plans: 12
   percent: 25
 ---
 
@@ -60,6 +60,8 @@ Progress: [██░░░░░░░░] 25%
 | Phase 02-ssh-terminal-sessions P05 | 525553 | 2 tasks | 8 files |
 | Phase 03-sftp-file-browser P01 | 15 | 2 tasks | 7 files |
 | Phase 03-sftp-file-browser P02 | 343 | 2 tasks | 5 files |
+| Phase 03-sftp-file-browser P03 | 15 | 2 tasks | 2 files |
+| Phase 03-sftp-file-browser P04 | 12 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -97,6 +99,10 @@ Recent decisions affecting current work:
 - [Phase 03-sftp-file-browser]: SFTPSubprocessChannel uses interactive sftp (no -b flag) with readUntilPrompt() for per-command stdout capture
 - [Phase 03-sftp-file-browser]: waitForSocket() skipped for MockSFTPChannel via type check in connect() to keep tests fast without protocol changes
 - [Phase 03-sftp-file-browser]: upload/download progress uses single-shot polling rather than sftp verbose output parsing — simpler and more robust
+- [Phase 03-sftp-file-browser 03-03]: sftpChannelFactory closure on TabManager for test injection avoids over-engineering; withObservationTracking loop in Task for SFTP auto-connect
+- [Phase 03-sftp-file-browser 03-03]: Task.yield() needed in test before connection.start() so observation Task registers withObservationTracking before state change fires
+- [Phase 03-sftp-file-browser 03-04]: NSFilePromiseProvider required for Finder drag-out — SwiftUI onDrag cannot deliver to Finder; NSViewRepresentable overlay at opacity 0.001 used
+- [Phase 03-sftp-file-browser 03-04]: ForEach with tuple id resolved by introducing private BreadcrumbSegment: Identifiable struct; if/else in ForEach body extracted to @ViewBuilder helper
 
 ### Pending Todos
 
@@ -110,6 +116,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-22T15:01:08.894Z
-Stopped at: Completed 03-sftp-file-browser 03-02-PLAN.md
+Last session: 2026-03-22T15:12:44.000Z
+Stopped at: Completed 03-sftp-file-browser 03-04-PLAN.md
 Resume file: None

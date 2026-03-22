@@ -69,8 +69,8 @@ Plans:
 Plans:
 - [ ] 03-01-PLAN.md — Data models (SFTPItem, TransferTask, SFTPPanelPosition), SFTPChannel protocol, MockSFTPChannel, SFTPBrowserService skeleton, Wave 0 test stubs (Wave 1)
 - [ ] 03-02-PLAN.md — SFTPSubprocessChannel (/usr/bin/sftp backend), SFTPBrowserService full implementation with socket-wait logic, upload/download/file-ops, all tests passing (Wave 2)
-- [ ] 03-03-PLAN.md — TabItem/TabManager SFTP lifecycle (sftpPosition, sftpService fields, auto-connect), ContentView HSplitView/VSplitView split layout, SFTP position toolbar button (Wave 3)
-- [ ] 03-04-PLAN.md — SFTPPanelView, SFTPBreadcrumbBar, SFTPFileListView, SFTPFileRowView with NSFilePromiseProvider drag-to-Finder (Wave 3, parallel)
+- [x] 03-03-PLAN.md — TabItem/TabManager SFTP lifecycle (sftpPosition, sftpService fields, auto-connect), ContentView HSplitView/VSplitView split layout, SFTP position toolbar button (Wave 3)
+- [x] 03-04-PLAN.md — SFTPPanelView, SFTPBreadcrumbBar, SFTPFileListView, SFTPFileRowView with NSFilePromiseProvider drag-to-Finder (Wave 3, parallel)
 - [ ] 03-05-PLAN.md — SFTPTransferFooter, SFTPDropTargetView (NSDraggingDestination), upload toolbar button, NSSavePanel download, Preferences SFTP section (Wave 4)
 - [ ] 03-06-PLAN.md — Human verification checkpoint: end-to-end SFTP with live SSH session (Wave 5)
 
@@ -97,5 +97,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. App Foundation and Session Management | 3/3 | Complete   | 2026-03-20 |
 | 2. SSH Terminal and Credentials | 5/6 | In Progress|  |
-| 3. SFTP File Browser | 1/6 | In Progress|  |
+| 3. SFTP File Browser | 4/6 | In Progress|  |
 | 4. RDP, VNC, and X11 Forwarding | 0/2 | Not started | - |
