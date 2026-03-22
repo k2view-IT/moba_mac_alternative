@@ -152,15 +152,6 @@ final class SSHConnection: LocalProcessTerminalViewDelegate {
         }
     }
 
-    /// Auto-copy: whenever the user finishes selecting text, invoke SwiftTerm's
-    /// built-in copy handler which pushes the selection to NSPasteboard.
-    /// This is the MobaXterm "select = copy" behaviour — no Cmd+C needed.
-    nonisolated func selectionChanged(source: TerminalView) {
-        DispatchQueue.main.async {
-            source.copy(source)
-        }
-    }
-
     nonisolated func sizeChanged(source: LocalProcessTerminalView, newCols: Int, newRows: Int) {
         // Terminal resized — handled automatically by LocalProcessTerminalView
     }
