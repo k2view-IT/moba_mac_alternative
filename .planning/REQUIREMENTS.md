@@ -15,21 +15,21 @@
 
 ### SSH
 
-- [ ] **SSH-01**: User can connect to an SSH host and get a terminal session in a new tab
+- [x] **SSH-01**: User can connect to an SSH host and get a terminal session in a new tab
 - [ ] **SSH-02**: SSH sessions support both password and SSH key authentication
-- [ ] **SSH-03**: SSH respects the user's existing ~/.ssh/config and known_hosts files
-- [ ] **SSH-04**: User can enable SSH agent forwarding per session (ForwardAgent)
-- [ ] **SSH-05**: User can configure port forwarding rules per session (local, remote, dynamic)
+- [x] **SSH-03**: SSH respects the user's existing ~/.ssh/config and known_hosts files
+- [x] **SSH-04**: User can enable SSH agent forwarding per session (ForwardAgent)
+- [x] **SSH-05**: User can configure port forwarding rules per session (local, remote, dynamic)
 - [ ] **SSH-06**: User can view and manage active port forwarding tunnels while connected
 - [ ] **SSH-07**: User can generate new SSH key pairs from within the app
 
 ### Terminal
 
-- [ ] **TERM-01**: Terminal emulator runs inside the app in a tab (no external Terminal.app)
-- [ ] **TERM-02**: Multiple sessions open simultaneously in tabs with easy switching
-- [ ] **TERM-03**: Terminal supports full color output, scrollback buffer, resize, and ANSI sequences
-- [ ] **TERM-04**: Terminal session output can be automatically logged to a file per session
-- [ ] **TERM-05**: User can save reusable command snippets and execute them in the active session
+- [x] **TERM-01**: Terminal emulator runs inside the app in a tab (no external Terminal.app)
+- [x] **TERM-02**: Multiple sessions open simultaneously in tabs with easy switching
+- [x] **TERM-03**: Terminal supports full color output, scrollback buffer, resize, and ANSI sequences
+- [x] **TERM-04**: Terminal session output can be automatically logged to a file per session
+- [x] **TERM-05**: User can save reusable command snippets and execute them in the active session
 
 ### X11 Forwarding
 
@@ -116,18 +116,18 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DIST-01 | Phase 1 | Complete |
 | DIST-02 | Phase 1 | Complete |
 | DIST-03 | Phase 1 | Complete |
-| SSH-01 | Phase 2 | Pending |
+| SSH-01 | Phase 2 | Complete |
 | SSH-02 | Phase 2 | Pending |
-| SSH-03 | Phase 2 | Pending |
-| SSH-04 | Phase 2 | Pending |
-| SSH-05 | Phase 2 | Pending |
+| SSH-03 | Phase 2 | Complete |
+| SSH-04 | Phase 2 | Complete |
+| SSH-05 | Phase 2 | Complete |
 | SSH-06 | Phase 2 | Pending |
 | SSH-07 | Phase 2 | Pending |
-| TERM-01 | Phase 2 | Pending |
-| TERM-02 | Phase 2 | Pending |
-| TERM-03 | Phase 2 | Pending |
-| TERM-04 | Phase 2 | Pending |
-| TERM-05 | Phase 2 | Pending |
+| TERM-01 | Phase 2 | Complete |
+| TERM-02 | Phase 2 | Complete |
+| TERM-03 | Phase 2 | Complete |
+| TERM-04 | Phase 2 | Complete |
+| TERM-05 | Phase 2 | Complete |
 | CRED-01 | Phase 2 | Pending |
 | CRED-02 | Phase 2 | Pending |
 | CRED-03 | Phase 2 | Pending |
