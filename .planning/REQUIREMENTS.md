@@ -20,8 +20,8 @@
 - [x] **SSH-03**: SSH respects the user's existing ~/.ssh/config and known_hosts files
 - [x] **SSH-04**: User can enable SSH agent forwarding per session (ForwardAgent)
 - [x] **SSH-05**: User can configure port forwarding rules per session (local, remote, dynamic)
-- [ ] **SSH-06**: User can view and manage active port forwarding tunnels while connected
-- [ ] **SSH-07**: User can generate new SSH key pairs from within the app
+- [x] **SSH-06**: User can view and manage active port forwarding tunnels while connected
+- [x] **SSH-07**: User can generate new SSH key pairs from within the app
 
 ### Terminal
 
@@ -121,8 +121,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SSH-03 | Phase 2 | Complete |
 | SSH-04 | Phase 2 | Complete |
 | SSH-05 | Phase 2 | Complete |
-| SSH-06 | Phase 2 | Pending |
-| SSH-07 | Phase 2 | Pending |
+| SSH-06 | Phase 2 | Complete |
+| SSH-07 | Phase 2 | Complete |
 | TERM-01 | Phase 2 | Complete |
 | TERM-02 | Phase 2 | Complete |
 | TERM-03 | Phase 2 | Complete |

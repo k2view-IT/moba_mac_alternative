@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: "Completed 02-02-PLAN.md: KeychainManager and KeyVaultManager credential infrastructure"
-last_updated: "2026-03-22T10:37:42.656Z"
+stopped_at: "Completed 02-03-PLAN.md: SSH core services (SSHArgumentBuilder, TabManager, SSHConnection, SessionLogWriter, SSHKeyGenerator)"
+last_updated: "2026-03-22T10:52:17.733Z"
 last_activity: 2026-03-20 -- Phase 1 human-verify approved; all 3 plans complete
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 9
-  completed_plans: 5
+  completed_plans: 6
   percent: 25
 ---
 
@@ -55,6 +55,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 01-app-foundation-and-session-management P03 | 56 | 2 tasks | 15 files |
 | Phase 02-ssh-terminal-sessions P01 | 5 | 2 tasks | 13 files |
 | Phase 02-ssh-terminal-sessions P02 | 7 | 2 tasks | 5 files |
+| Phase 02-ssh-terminal-sessions P03 | 13 | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -80,6 +81,8 @@ Recent decisions affecting current work:
 - [Phase 02-ssh-terminal-sessions]: KeychainManager uses init(service:) overload with unique test service identifier to isolate test Keychain items from production items
 - [Phase 02-ssh-terminal-sessions]: VaultManager wrong-password detection uses CryptoKitError catch on AES.GCM.open (tag mismatch) rather than a separate verification record — simpler and equally secure
 - [Phase 02-ssh-terminal-sessions]: Vault salt (32 random bytes) is NOT secret — stored in plaintext alongside vault; only the HKDF-derived key is secret
+- [Phase 02-ssh-terminal-sessions]: SSHConnection uses processDelegate (not delegate) to avoid breaking SwiftTerm's internal TerminalViewDelegate wiring
+- [Phase 02-ssh-terminal-sessions]: SSHArgumentBuilder.build() takes sessionId separately from SSHConfig — ControlMaster socket uniqueness comes from session layer, not config model
 
 ### Pending Todos
 
@@ -93,6 +96,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-22T10:37:42.653Z
-Stopped at: Completed 02-02-PLAN.md: KeychainManager and KeyVaultManager credential infrastructure
+Last session: 2026-03-22T10:52:17.731Z
+Stopped at: Completed 02-03-PLAN.md: SSH core services (SSHArgumentBuilder, TabManager, SSHConnection, SessionLogWriter, SSHKeyGenerator)
 Resume file: None
