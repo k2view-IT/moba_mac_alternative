@@ -2,8 +2,11 @@ import SwiftUI
 
 struct SessionEditorBasicTab: View {
     @Binding var draft: SessionDefinition
+    /// Live password value owned by SessionEditorSheet; written to Keychain on save.
+    @Binding var password: String
+    /// Whether to persist the password to Keychain on save.
+    @Binding var saveToKeychain: Bool
 
-    @State private var saveToKeychain = true
     @State private var previousHostname = ""
 
     // MARK: - Derived protocol state
@@ -69,9 +72,9 @@ struct SessionEditorBasicTab: View {
                     }
                 }
 
-                SecureField("Password", text: passwordPlaceholderBinding)
+                SecureField("Password", text: $password)
                 Toggle("Save to Keychain", isOn: $saveToKeychain)
-                    .help("Password will be saved to macOS Keychain. Actual Keychain write implemented in Phase 2.")
+                    .help("Password is saved to macOS Keychain and injected automatically on connect.")
             }
         }
         .formStyle(.grouped)
@@ -192,11 +195,7 @@ struct SessionEditorBasicTab: View {
         )
     }
 
-    // Phase 1 placeholder — password not stored; Keychain write deferred to Phase 2
-    @State private var _passwordPlaceholder = ""
-    private var passwordPlaceholderBinding: Binding<String> {
-        Binding(get: { _passwordPlaceholder }, set: { _passwordPlaceholder = $0 })
-    }
+
 }
 
 // MARK: - Helpers

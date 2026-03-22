@@ -10,6 +10,9 @@ struct SessionEditorSheet: View {
     @State private var draft: SessionDefinition
     @State private var selectedTab = 0
     @State private var showingWizard = false
+    /// Password owned here; loaded from Keychain on appear, written on save.
+    @State private var sessionPassword: String = ""
+    @State private var savePasswordToKeychain: Bool = true
 
     init(session: SessionDefinition?, targetFolderId: UUID?) {
         self.session = session
@@ -46,9 +49,13 @@ struct SessionEditorSheet: View {
             Divider()
 
             TabView(selection: $selectedTab) {
-                SessionEditorBasicTab(draft: $draft)
-                    .tabItem { Label("Basic", systemImage: "info.circle") }
-                    .tag(0)
+                SessionEditorBasicTab(
+                    draft: $draft,
+                    password: $sessionPassword,
+                    saveToKeychain: $savePasswordToKeychain
+                )
+                .tabItem { Label("Basic", systemImage: "info.circle") }
+                .tag(0)
 
                 SessionEditorAdvancedTab(draft: $draft)
                     .tabItem { Label("Advanced", systemImage: "gearshape") }
@@ -97,6 +104,12 @@ struct SessionEditorSheet: View {
         .sheet(isPresented: $showingWizard) {
             SessionWizardView(draft: $draft)
         }
+        .task {
+            // When editing an existing session, pre-fill the password field from Keychain.
+            if let session {
+                sessionPassword = (try? await KeychainManager().getPassword(for: session.id)) ?? ""
+            }
+        }
     }
 
     private func saveAndDismiss() {
@@ -115,6 +128,14 @@ struct SessionEditorSheet: View {
             library.addSession(newSession)
         } else {
             library.updateSession(draft)
+        }
+        // Persist password to Keychain if requested
+        if savePasswordToKeychain && !sessionPassword.isEmpty {
+            let sessionId = draft.id
+            let pw = sessionPassword
+            Task {
+                try? await KeychainManager().savePassword(pw, for: sessionId)
+            }
         }
         dismiss()
     }

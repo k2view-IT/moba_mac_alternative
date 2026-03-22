@@ -7,7 +7,8 @@ import SwiftTerm
 /// NSViewRepresentable wrapping SSHConnection's LocalProcessTerminalView.
 ///
 /// Starts the SSH connection exactly once when the view is first created.
-/// The terminal manages its own rendering — updateNSView is intentionally a no-op.
+/// Grants first-responder status so Cmd+C / Cmd+V and all keyboard input
+/// are routed directly to the terminal, not SwiftUI.
 struct TerminalTabView: NSViewRepresentable {
     let connection: SSHConnection
 
@@ -16,11 +17,23 @@ struct TerminalTabView: NSViewRepresentable {
         if connection.terminalView == nil {
             connection.start()
         }
-        // Return the terminal view if available, otherwise a placeholder
-        return connection.terminalView ?? NSView()
+        let view = connection.terminalView ?? NSView()
+
+        // Make the terminal the key window's first responder so keyboard events
+        // (including Cmd+C copy, Cmd+V paste) go to the terminal, not SwiftUI.
+        DispatchQueue.main.async {
+            view.window?.makeFirstResponder(view)
+        }
+        return view
     }
 
     func updateNSView(_ nsView: NSView, context: Context) {
-        // Terminal manages its own rendering — no-op
+        // Re-focus whenever SwiftUI re-renders this view (e.g., tab switch).
+        DispatchQueue.main.async {
+            guard let window = nsView.window else { return }
+            if window.firstResponder !== nsView {
+                window.makeFirstResponder(nsView)
+            }
+        }
     }
 }
