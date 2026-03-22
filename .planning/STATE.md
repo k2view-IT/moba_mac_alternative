@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 03-sftp-file-browser 03-04-PLAN.md
-last_updated: "2026-03-22T15:12:44.000Z"
+stopped_at: Completed 03-sftp-file-browser 03-05-PLAN.md
+last_updated: "2026-03-22T15:22:04.311Z"
 last_activity: 2026-03-20 -- Phase 1 human-verify approved; all 3 plans complete
 progress:
   total_phases: 4
   completed_phases: 1
   total_plans: 15
-  completed_plans: 12
+  completed_plans: 13
   percent: 25
 ---
 
@@ -62,6 +62,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 03-sftp-file-browser P02 | 343 | 2 tasks | 5 files |
 | Phase 03-sftp-file-browser P03 | 15 | 2 tasks | 2 files |
 | Phase 03-sftp-file-browser P04 | 12 | 2 tasks | 6 files |
+| Phase 03-sftp-file-browser P05 | 3 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -103,6 +104,8 @@ Recent decisions affecting current work:
 - [Phase 03-sftp-file-browser 03-03]: Task.yield() needed in test before connection.start() so observation Task registers withObservationTracking before state change fires
 - [Phase 03-sftp-file-browser 03-04]: NSFilePromiseProvider required for Finder drag-out — SwiftUI onDrag cannot deliver to Finder; NSViewRepresentable overlay at opacity 0.001 used
 - [Phase 03-sftp-file-browser 03-04]: ForEach with tuple id resolved by introducing private BreadcrumbSegment: Identifiable struct; if/else in ForEach body extracted to @ViewBuilder helper
+- [Phase 03-sftp-file-browser 03-05]: NSDraggingDestination via NSView subclass (not SwiftUI .onDrop) to avoid double-handling for both in-app and Finder drops
+- [Phase 03-sftp-file-browser 03-05]: SFTPDropTargetNSView omits explicit NSDraggingDestination conformance — NSView already adopts it; explicit declaration causes redundant-conformance error on macOS 15+
 
 ### Pending Todos
 
@@ -116,6 +119,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-22T15:12:44.000Z
-Stopped at: Completed 03-sftp-file-browser 03-04-PLAN.md
+Last session: 2026-03-22T15:22:04.309Z
+Stopped at: Completed 03-sftp-file-browser 03-05-PLAN.md
 Resume file: None
