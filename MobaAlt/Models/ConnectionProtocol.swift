@@ -18,6 +18,39 @@ struct SSHConfig: Codable, Hashable {
     var privateKeyPath: String = ""   // used when authMethod == .privateKey
     var x11Forwarding: Bool = false
     var agentForwarding: Bool = false
+    var portForwardingRules: [PortForwardingRule] = []
+
+    // Custom init(from:) so that old session JSON that lacks portForwardingRules
+    // decodes without error — falling back to an empty array.
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        hostname            = try c.decode(String.self,          forKey: .hostname)
+        port                = try c.decodeIfPresent(Int.self,    forKey: .port)            ?? 22
+        username            = try c.decodeIfPresent(String.self, forKey: .username)        ?? ""
+        authMethod          = try c.decodeIfPresent(SSHAuthMethod.self, forKey: .authMethod) ?? .password
+        privateKeyPath      = try c.decodeIfPresent(String.self, forKey: .privateKeyPath) ?? ""
+        x11Forwarding       = try c.decodeIfPresent(Bool.self,   forKey: .x11Forwarding)  ?? false
+        agentForwarding     = try c.decodeIfPresent(Bool.self,   forKey: .agentForwarding) ?? false
+        portForwardingRules = try c.decodeIfPresent([PortForwardingRule].self, forKey: .portForwardingRules) ?? []
+    }
+
+    init(hostname: String,
+         port: Int = 22,
+         username: String = "",
+         authMethod: SSHAuthMethod = .password,
+         privateKeyPath: String = "",
+         x11Forwarding: Bool = false,
+         agentForwarding: Bool = false,
+         portForwardingRules: [PortForwardingRule] = []) {
+        self.hostname            = hostname
+        self.port                = port
+        self.username            = username
+        self.authMethod          = authMethod
+        self.privateKeyPath      = privateKeyPath
+        self.x11Forwarding       = x11Forwarding
+        self.agentForwarding     = agentForwarding
+        self.portForwardingRules = portForwardingRules
+    }
 }
 
 struct RDPConfig: Codable, Hashable {
