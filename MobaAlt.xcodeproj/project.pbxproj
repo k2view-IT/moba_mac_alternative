@@ -52,6 +52,8 @@
 		F66336277E9A6CC6716ADB0E /* ExportDialogSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA9330A062A2E3F9111007 /* ExportDialogSheet.swift */; };
 		F7B02D3B990B8D93C4E695B8 /* SessionWizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1439F2BBA729674AD7DD21 /* SessionWizardView.swift */; };
 		F8337911D7021211745CFC55 /* ImportWizardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A4B69B3438909E35616964 /* ImportWizardSheet.swift */; };
+		A798A9737FFF4663B978ACCD /* KeyVaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F0A59B32D64BDC81F0BB92 /* KeyVaultManager.swift */; };
+		C9D40B6AC6B94FF18A35E246 /* KeyVaultManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2144E87223E149EAB762DD30 /* KeyVaultManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		FDA6ED52C57B332B90449292 /* SessionEditorAdvancedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditorAdvancedTab.swift; sourceTree = "<group>"; };
 		FEA9344F6873C7E617476017 /* SessionFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFolder.swift; sourceTree = "<group>"; };
 		FEC7A21CA44089B0327CD5F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F5F0A59B32D64BDC81F0BB92 /* KeyVaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyVaultManager.swift; sourceTree = "<group>"; };
+		2144E87223E149EAB762DD30 /* KeyVaultManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyVaultManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 				E429134CF80C6DD135B81292 /* EntitlementTests.swift */,
 				4AB0A29EAE452563159939FD /* ExporterTests.swift */,
 				88D14FD95731BF8864385112 /* KeychainManagerTests.swift */,
+				2144E87223E149EAB762DD30 /* KeyVaultManagerTests.swift */,
 				0991998F5745EFA649EAC063 /* MXTParserTests.swift */,
 				BFA93DF140BD2FBCBF0A4994 /* SessionLibraryTests.swift */,
 				39C766B0F9AC182BA9240784 /* SessionLogWriterTests.swift */,
@@ -181,6 +186,7 @@
 				533099261F6B37D8A13A937A /* HTMLExporter.swift */,
 				D698CDEF96E157BE7D85EDAB /* JSONExporter.swift */,
 				385255DA133CC55F96C80B36 /* KeychainManager.swift */,
+				F5F0A59B32D64BDC81F0BB92 /* KeyVaultManager.swift */,
 				0779822F9A5B53D2ED940692 /* MXTSessionsParser.swift */,
 				AC6013C67AABF7E770283A37 /* MXTSessionsWriter.swift */,
 				65F8A32784BEC387237FF10B /* SessionStore.swift */,
@@ -402,6 +408,7 @@
 				519964207A8C1961A7E8BEA4 /* EntitlementTests.swift in Sources */,
 				8854A9F2911D1F01D9F3D723 /* ExporterTests.swift in Sources */,
 				C0213BFAE1E0ECCB145DE9DC /* KeychainManagerTests.swift in Sources */,
+				C9D40B6AC6B94FF18A35E246 /* KeyVaultManagerTests.swift in Sources */,
 				06C33519F77C25257808B031 /* MXTParserTests.swift in Sources */,
 				13EC5C45781CF6CABD6FC8FB /* SSHArgumentBuilderTests.swift in Sources */,
 				5D36429D7EBD90DCEE271269 /* SSHConnectionTests.swift in Sources */,
@@ -431,6 +438,7 @@
 				F8337911D7021211745CFC55 /* ImportWizardSheet.swift in Sources */,
 				5DCFEA743E638A7E46927478 /* JSONExporter.swift in Sources */,
 				495A1A4E71754454CA78BA52 /* KeychainManager.swift in Sources */,
+				A798A9737FFF4663B978ACCD /* KeyVaultManager.swift in Sources */,
 				7A60A3A4309A9F8AE29CF321 /* MXTSessionsParser.swift in Sources */,
 				4F33225F82071CC65722DE31 /* MXTSessionsWriter.swift in Sources */,
 				45630B56E6FB74CD41A71DE9 /* MobaAltApp.swift in Sources */,
