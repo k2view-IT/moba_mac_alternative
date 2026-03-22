@@ -10,15 +10,17 @@
 		06C33519F77C25257808B031 /* MXTParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0991998F5745EFA649EAC063 /* MXTParserTests.swift */; };
 		087321E988A7D4122041FD67 /* sample.mxtsessions in Resources */ = {isa = PBXBuildFile; fileRef = E997F25D93BAEE67E800D4BB /* sample.mxtsessions */; };
 		0C0FD93EF4F8C4BDBC9D92E7 /* AtomicFileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9010B436AB15DCECE30609B6 /* AtomicFileWriter.swift */; };
+		0CCA2E5A360D2D5F34D31891 /* MobaTerminalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7CC8511C148B6AD0C3D48 /* MobaTerminalView.swift */; };
 		0F2B50427184C1A4B261FC3B /* CommandSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65B7784CBCBB3CC3553A6D /* CommandSnippet.swift */; };
 		13EC5C45781CF6CABD6FC8FB /* SSHArgumentBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A46ADCA293E791CE683A8 /* SSHArgumentBuilderTests.swift */; };
 		19AC350B59EB58EC05948281 /* PortForwardingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7309640E52D1B99D867E669 /* PortForwardingRule.swift */; };
 		19D5C49B04C6C6D2ECBCF7B4 /* TerminalTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856B22B59A6E89DA53B64C2B /* TerminalTabBar.swift */; };
-		DA5A203499CE40F3B181FDD8 /* MobaTerminalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F330B3FCF7834C3C97DF39C1 /* MobaTerminalView.swift */; };
 		1EE5DAB5BCAB34D5B5409C9F /* SSHKeyGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DE1C13CED0E5FF1B6A0D8 /* SSHKeyGeneratorTests.swift */; };
 		2D7CEB04E64691B1659ADFCD /* ImportConflictSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B525243495FC2E69CEE6A6B /* ImportConflictSheet.swift */; };
+		3C1189462C0E53E2E18D9C2C /* SFTPPanelPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334408092B83E66DE6E1F8E0 /* SFTPPanelPosition.swift */; };
 		3C668202E7704C0B965DA935 /* SessionEditorAdvancedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA6ED52C57B332B90449292 /* SessionEditorAdvancedTab.swift */; };
 		3DF932162DAAB7925B33BEB7 /* SidebarDensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316128D9A4C2F1BD2A5FDB3E /* SidebarDensity.swift */; };
+		3F3473CDE7267F7E9476E3F1 /* SFTPDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3274D5804DCFCC85CF2DA69 /* SFTPDataModelTests.swift */; };
 		45630B56E6FB74CD41A71DE9 /* MobaAltApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B772C7AA912AFCDA53D3E /* MobaAltApp.swift */; };
 		495A1A4E71754454CA78BA52 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385255DA133CC55F96C80B36 /* KeychainManager.swift */; };
 		4CAA618EBCFE48A0A0F22FB3 /* SessionConflictResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F574928D39B3B1D843DE3E55 /* SessionConflictResolver.swift */; };
@@ -34,6 +36,7 @@
 		5E6D296AE055030B56C25662 /* CommandSnippetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807E2C7E8B6D2E7BBE8C1E6 /* CommandSnippetTests.swift */; };
 		619E33D0F4F1E6A45F9220A6 /* SSHConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75118411C654461920770040 /* SSHConnection.swift */; };
 		64F9F6B7C89D01FCF7B09700 /* SessionStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181E40A6994B69CFE105025 /* SessionStoreTests.swift */; };
+		6AD8DF2D2CDB5B286AD31663 /* TransferTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEB896DBAE49E42721FFDBD /* TransferTask.swift */; };
 		764376B69B94DBB7BC36E4B5 /* KeyVaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064F6246E27F108D0CF1C400 /* KeyVaultView.swift */; };
 		77DA734223786755D3E49D7E /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F8A32784BEC387237FF10B /* SessionStore.swift */; };
 		7A60A3A4309A9F8AE29CF321 /* MXTSessionsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0779822F9A5B53D2ED940692 /* MXTSessionsParser.swift */; };
@@ -63,6 +66,7 @@
 		D8946D06AF6F9607A566489B /* SessionEditorBasicTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119AF30F02BD647B01F1B530 /* SessionEditorBasicTab.swift */; };
 		DEFFE10DFFA1F19280AE350C /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = 254D474F18CC2F435CEF6B00 /* SwiftTerm */; };
 		E324377FCDEB1E879B189933 /* SessionDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ECE0FF6F0FC1F90C84A8A9 /* SessionDefinition.swift */; };
+		E3A29CD416E6FD629A11B6D5 /* SFTPItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8377561DEBB6C51602A5DC /* SFTPItem.swift */; };
 		ECCB340BC919D60A694B448E /* ActiveTunnelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED44268CE4C0E7F34D2CD87 /* ActiveTunnelsView.swift */; };
 		F190BE8EA76637FBAD30096C /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAEB4113042CE26EBFF5CD7 /* EnvironmentKeys.swift */; };
 		F66336277E9A6CC6716ADB0E /* ExportDialogSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA9330A062A2E3F9111007 /* ExportDialogSheet.swift */; };
@@ -100,6 +104,7 @@
 		2D1439F2BBA729674AD7DD21 /* SessionWizardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionWizardView.swift; sourceTree = "<group>"; };
 		2DC552CAD2310263FCAF8A2C /* SessionEditorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditorSheet.swift; sourceTree = "<group>"; };
 		316128D9A4C2F1BD2A5FDB3E /* SidebarDensity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarDensity.swift; sourceTree = "<group>"; };
+		334408092B83E66DE6E1F8E0 /* SFTPPanelPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFTPPanelPosition.swift; sourceTree = "<group>"; };
 		385255DA133CC55F96C80B36 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		39C766B0F9AC182BA9240784 /* SessionLogWriterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLogWriterTests.swift; sourceTree = "<group>"; };
 		3AAEB4113042CE26EBFF5CD7 /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 		533099261F6B37D8A13A937A /* HTMLExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLExporter.swift; sourceTree = "<group>"; };
 		543520ADB27DF6BE54D21D7D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5C8788971A96C512AF08EA9F /* CredentialPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialPickerView.swift; sourceTree = "<group>"; };
+		5D8377561DEBB6C51602A5DC /* SFTPItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFTPItem.swift; sourceTree = "<group>"; };
 		5DB861473C6CCD047BB3DA53 /* SSHArgumentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHArgumentBuilder.swift; sourceTree = "<group>"; };
 		5E6A1BAC8E8CA965118A2412 /* MobaAlt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MobaAlt.entitlements; sourceTree = "<group>"; };
 		65F8A32784BEC387237FF10B /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
@@ -125,10 +131,13 @@
 		8A076508FF27880F438181DA /* TabManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManager.swift; sourceTree = "<group>"; };
 		9010B436AB15DCECE30609B6 /* AtomicFileWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicFileWriter.swift; sourceTree = "<group>"; };
 		9250F010A024356FCA8B01C6 /* ImportSummarySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSummarySheet.swift; sourceTree = "<group>"; };
+		A3274D5804DCFCC85CF2DA69 /* SFTPDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFTPDataModelTests.swift; sourceTree = "<group>"; };
 		A45BF30EBE367EC10784667C /* KeyVaultManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyVaultManagerTests.swift; sourceTree = "<group>"; };
 		A7309640E52D1B99D867E669 /* PortForwardingRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortForwardingRule.swift; sourceTree = "<group>"; };
+		A9B7CC8511C148B6AD0C3D48 /* MobaTerminalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobaTerminalView.swift; sourceTree = "<group>"; };
 		AC6013C67AABF7E770283A37 /* MXTSessionsWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXTSessionsWriter.swift; sourceTree = "<group>"; };
 		AC65B7784CBCBB3CC3553A6D /* CommandSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandSnippet.swift; sourceTree = "<group>"; };
+		ACEB896DBAE49E42721FFDBD /* TransferTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferTask.swift; sourceTree = "<group>"; };
 		AF0115DE4C2A0B539A186FC2 /* MobaAltTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobaAltTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B380E1B521ACA995572CAAC2 /* SSHConnectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHConnectionTests.swift; sourceTree = "<group>"; };
 		B807E2C7E8B6D2E7BBE8C1E6 /* CommandSnippetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandSnippetTests.swift; sourceTree = "<group>"; };
@@ -145,7 +154,6 @@
 		F4F1EC2D00B83A09526F4133 /* MobaAlt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobaAlt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F574928D39B3B1D843DE3E55 /* SessionConflictResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionConflictResolver.swift; sourceTree = "<group>"; };
 		F86DCB3C968263C017733414 /* TerminalTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTabView.swift; sourceTree = "<group>"; };
-		F330B3FCF7834C3C97DF39C1 /* MobaTerminalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobaTerminalView.swift; sourceTree = "<group>"; };
 		FDA6ED52C57B332B90449292 /* SessionEditorAdvancedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditorAdvancedTab.swift; sourceTree = "<group>"; };
 		FEA9344F6873C7E617476017 /* SessionFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFolder.swift; sourceTree = "<group>"; };
 		FEC7A21CA44089B0327CD5F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -175,6 +183,7 @@
 				BFA93DF140BD2FBCBF0A4994 /* SessionLibraryTests.swift */,
 				39C766B0F9AC182BA9240784 /* SessionLogWriterTests.swift */,
 				5181E40A6994B69CFE105025 /* SessionStoreTests.swift */,
+				A3274D5804DCFCC85CF2DA69 /* SFTPDataModelTests.swift */,
 				830A46ADCA293E791CE683A8 /* SSHArgumentBuilderTests.swift */,
 				B380E1B521ACA995572CAAC2 /* SSHConnectionTests.swift */,
 				141DE1C13CED0E5FF1B6A0D8 /* SSHKeyGeneratorTests.swift */,
@@ -243,8 +252,8 @@
 		4EDFFDE1605DC6314E6552BA /* Terminal */ = {
 			isa = PBXGroup;
 			children = (
+				A9B7CC8511C148B6AD0C3D48 /* MobaTerminalView.swift */,
 				856B22B59A6E89DA53B64C2B /* TerminalTabBar.swift */,
-				F330B3FCF7834C3C97DF39C1 /* MobaTerminalView.swift */,
 				F86DCB3C968263C017733414 /* TerminalTabView.swift */,
 			);
 			path = Terminal;
@@ -335,7 +344,9 @@
 				C6ECE0FF6F0FC1F90C84A8A9 /* SessionDefinition.swift */,
 				FEA9344F6873C7E617476017 /* SessionFolder.swift */,
 				26BA2206B56D26840BBDCE33 /* SessionLibrary.swift */,
+				5D8377561DEBB6C51602A5DC /* SFTPItem.swift */,
 				316128D9A4C2F1BD2A5FDB3E /* SidebarDensity.swift */,
+				ACEB896DBAE49E42721FFDBD /* TransferTask.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -346,6 +357,7 @@
 				9010B436AB15DCECE30609B6 /* AtomicFileWriter.swift */,
 				3AAEB4113042CE26EBFF5CD7 /* EnvironmentKeys.swift */,
 				F574928D39B3B1D843DE3E55 /* SessionConflictResolver.swift */,
+				334408092B83E66DE6E1F8E0 /* SFTPPanelPosition.swift */,
 				5DB861473C6CCD047BB3DA53 /* SSHArgumentBuilder.swift */,
 			);
 			path = Utilities;
@@ -482,6 +494,7 @@
 				7F172C5852ABD98DBF2CF383 /* KeyVaultManagerTests.swift in Sources */,
 				C0213BFAE1E0ECCB145DE9DC /* KeychainManagerTests.swift in Sources */,
 				06C33519F77C25257808B031 /* MXTParserTests.swift in Sources */,
+				3F3473CDE7267F7E9476E3F1 /* SFTPDataModelTests.swift in Sources */,
 				13EC5C45781CF6CABD6FC8FB /* SSHArgumentBuilderTests.swift in Sources */,
 				5D36429D7EBD90DCEE271269 /* SSHConnectionTests.swift in Sources */,
 				1EE5DAB5BCAB34D5B5409C9F /* SSHKeyGeneratorTests.swift in Sources */,
@@ -520,9 +533,12 @@
 				7A60A3A4309A9F8AE29CF321 /* MXTSessionsParser.swift in Sources */,
 				4F33225F82071CC65722DE31 /* MXTSessionsWriter.swift in Sources */,
 				45630B56E6FB74CD41A71DE9 /* MobaAltApp.swift in Sources */,
+				0CCA2E5A360D2D5F34D31891 /* MobaTerminalView.swift in Sources */,
 				4FFC050FFE9BB32B9CBEB837 /* PortForwardingEditorView.swift in Sources */,
 				19AC350B59EB58EC05948281 /* PortForwardingRule.swift in Sources */,
 				AAFA299614AC550F176060F1 /* PreferencesView.swift in Sources */,
+				E3A29CD416E6FD629A11B6D5 /* SFTPItem.swift in Sources */,
+				3C1189462C0E53E2E18D9C2C /* SFTPPanelPosition.swift in Sources */,
 				A996800F8ABAC74632D8244C /* SSHArgumentBuilder.swift in Sources */,
 				619E33D0F4F1E6A45F9220A6 /* SSHConnection.swift in Sources */,
 				4D0D24F57F6D9479AC9B71B5 /* SSHKeyGenerator.swift in Sources */,
@@ -542,8 +558,8 @@
 				9E6847185F0E4CCF4191DFF6 /* SnippetStore.swift in Sources */,
 				7DB24CF91557406A6AFF2612 /* TabManager.swift in Sources */,
 				19D5C49B04C6C6D2ECBCF7B4 /* TerminalTabBar.swift in Sources */,
-				DA5A203499CE40F3B181FDD8 /* MobaTerminalView.swift in Sources */,
 				7C7A9A019AB1F51AD5A78CD1 /* TerminalTabView.swift in Sources */,
+				6AD8DF2D2CDB5B286AD31663 /* TransferTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
