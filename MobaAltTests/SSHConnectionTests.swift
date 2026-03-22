@@ -4,6 +4,7 @@ import Foundation
 
 struct SSHConnectionTests {
     @Test func testEnvironmentContainsTERM() async throws {
-        #expect(Bool(false), "not implemented")
+        let env = SSHArgumentBuilder.environment()
+        #expect(env.contains("TERM=xterm-256color"))
     }
 }
