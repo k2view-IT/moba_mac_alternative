@@ -64,11 +64,15 @@ Plans:
   1. An SFTP file browser panel opens automatically alongside every SSH terminal session without requiring separate authentication
   2. User can browse the remote directory tree, and create, rename, and delete files and folders via the SFTP panel
   3. User can upload files by dragging from Finder into the SFTP panel and download files via drag-and-drop or context menu
-**Plans**: TBD
+**Plans**: 6 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md — Data models (SFTPItem, TransferTask, SFTPPanelPosition), SFTPChannel protocol, MockSFTPChannel, SFTPBrowserService skeleton, Wave 0 test stubs (Wave 1)
+- [ ] 03-02-PLAN.md — SFTPSubprocessChannel (/usr/bin/sftp backend), SFTPBrowserService full implementation with socket-wait logic, upload/download/file-ops, all tests passing (Wave 2)
+- [ ] 03-03-PLAN.md — TabItem/TabManager SFTP lifecycle (sftpPosition, sftpService fields, auto-connect), ContentView HSplitView/VSplitView split layout, SFTP position toolbar button (Wave 3)
+- [ ] 03-04-PLAN.md — SFTPPanelView, SFTPBreadcrumbBar, SFTPFileListView, SFTPFileRowView with NSFilePromiseProvider drag-to-Finder (Wave 3, parallel)
+- [ ] 03-05-PLAN.md — SFTPTransferFooter, SFTPDropTargetView (NSDraggingDestination), upload toolbar button, NSSavePanel download, Preferences SFTP section (Wave 4)
+- [ ] 03-06-PLAN.md — Human verification checkpoint: end-to-end SFTP with live SSH session (Wave 5)
 
 ### Phase 4: RDP, VNC, and X11 Forwarding
 **Goal**: Users can manage and launch RDP and VNC sessions from the app, and enable X11 forwarding on SSH sessions when XQuartz is available
@@ -93,5 +97,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. App Foundation and Session Management | 3/3 | Complete   | 2026-03-20 |
 | 2. SSH Terminal and Credentials | 5/6 | In Progress|  |
-| 3. SFTP File Browser | 0/2 | Not started | - |
+| 3. SFTP File Browser | 0/6 | Planned | - |
 | 4. RDP, VNC, and X11 Forwarding | 0/2 | Not started | - |
