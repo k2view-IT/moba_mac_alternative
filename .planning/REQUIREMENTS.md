@@ -38,11 +38,11 @@
 
 ### SFTP
 
-- [ ] **SFTP-01**: An SFTP file browser panel opens automatically alongside every SSH terminal session
-- [ ] **SFTP-02**: User can browse the remote directory tree in the SFTP panel
-- [ ] **SFTP-03**: User can upload files to the remote host via drag-and-drop into the SFTP panel
-- [ ] **SFTP-04**: User can download files from the remote host via drag-and-drop or context menu
-- [ ] **SFTP-05**: User can create, rename, and delete files and folders via the SFTP panel
+- [x] **SFTP-01**: An SFTP file browser panel opens automatically alongside every SSH terminal session
+- [x] **SFTP-02**: User can browse the remote directory tree in the SFTP panel
+- [x] **SFTP-03**: User can upload files to the remote host via drag-and-drop into the SFTP panel
+- [x] **SFTP-04**: User can download files from the remote host via drag-and-drop or context menu
+- [x] **SFTP-05**: User can create, rename, and delete files and folders via the SFTP panel
 
 ### RDP
 
@@ -132,11 +132,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CRED-02 | Phase 2 | Complete |
 | CRED-03 | Phase 2 | Complete |
 | CRED-04 | Phase 2 | Complete |
-| SFTP-01 | Phase 3 | Pending |
-| SFTP-02 | Phase 3 | Pending |
-| SFTP-03 | Phase 3 | Pending |
-| SFTP-04 | Phase 3 | Pending |
-| SFTP-05 | Phase 3 | Pending |
+| SFTP-01 | Phase 3 | Complete |
+| SFTP-02 | Phase 3 | Complete |
+| SFTP-03 | Phase 3 | Complete |
+| SFTP-04 | Phase 3 | Complete |
+| SFTP-05 | Phase 3 | Complete |
 | RDP-01 | Phase 4 | Pending |
 | RDP-02 | Phase 4 | Pending |
 | VNC-01 | Phase 4 | Pending |

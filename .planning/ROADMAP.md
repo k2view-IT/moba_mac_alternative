@@ -97,5 +97,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. App Foundation and Session Management | 3/3 | Complete   | 2026-03-20 |
 | 2. SSH Terminal and Credentials | 5/6 | In Progress|  |
-| 3. SFTP File Browser | 0/6 | Planned | - |
+| 3. SFTP File Browser | 1/6 | In Progress|  |
 | 4. RDP, VNC, and X11 Forwarding | 0/2 | Not started | - |

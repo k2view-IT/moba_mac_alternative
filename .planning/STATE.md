@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: "Completed 02-05-PLAN.md: PortForwardingEditorView, ActiveTunnelsView, CommandSnippetsView, SnippetStore"
-last_updated: "2026-03-22T11:03:14.019Z"
+stopped_at: Completed 03-sftp-file-browser 03-01-PLAN.md
+last_updated: "2026-03-22T14:53:54.882Z"
 last_activity: 2026-03-20 -- Phase 1 human-verify approved; all 3 plans complete
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 9
-  completed_plans: 8
+  total_plans: 15
+  completed_plans: 9
   percent: 25
 ---
 
@@ -58,6 +58,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 02-ssh-terminal-sessions P03 | 13 | 2 tasks | 12 files |
 | Phase 02-ssh-terminal-sessions P04 | 10 | 2 tasks | 10 files |
 | Phase 02-ssh-terminal-sessions P05 | 525553 | 2 tasks | 8 files |
+| Phase 03-sftp-file-browser P01 | 15 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -89,6 +90,9 @@ Recent decisions affecting current work:
 - [Phase 02-ssh-terminal-sessions]: TerminalTabView calls connection.start() in makeNSView if terminalView is nil — ensures exactly one start call per NSViewRepresentable lifecycle; tab switch uses .id(activeTab.id) for force-recreation
 - [Phase 02-ssh-terminal-sessions]: SnippetStore uses @Observable @MainActor class (not actor) so it integrates with SwiftUI @Environment Observable injection pattern
 - [Phase 02-ssh-terminal-sessions]: Port forwarding Tunnels tab in SessionEditorSheet uses computed Binding getter/setter on draft rather than local @State extraction
+- [Phase 03-sftp-file-browser]: SFTPChannel protocol has no actor annotation — concrete types choose their own context; MockSFTPChannel in main module for @testable import without flags
+- [Phase 03-sftp-file-browser]: TransferStatus is non-Equatable because failed(Error) associated value is not Equatable — isCompleted/isFailed computed vars provide state inspection
+- [Phase 03-sftp-file-browser]: SFTPBrowserService convenience init uses MockSFTPChannel placeholder (03-02 will replace with SFTPSubprocessChannel); SFTPItem.id uses path String for stable identity across directory refreshes
 
 ### Pending Todos
 
@@ -102,6 +106,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-22T11:03:07.048Z
-Stopped at: Completed 02-05-PLAN.md: PortForwardingEditorView, ActiveTunnelsView, CommandSnippetsView, SnippetStore
+Last session: 2026-03-22T14:53:48.168Z
+Stopped at: Completed 03-sftp-file-browser 03-01-PLAN.md
 Resume file: None
