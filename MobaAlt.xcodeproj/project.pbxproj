@@ -82,6 +82,8 @@
 		1D04846F89E149DD853A8B25 /* SFTPBreadcrumbBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D5B5F84BC94B04B9A3E979 /* SFTPBreadcrumbBar.swift */; };
 		60356AEA80F0416BB6FF8C13 /* SFTPFileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AC903BFA8A41D7B67BB6DF /* SFTPFileListView.swift */; };
 		5FDC069CC23A402FA41FA7CE /* SFTPFileRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C372A1A5CFA48BDB385165A /* SFTPFileRowView.swift */; };
+		A1B2C3D4E5F60718293A4B5C /* SFTPTransferFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F607182A3B4C5D6E /* SFTPTransferFooter.swift */; };
+		C3D4E5F607182A3B4C5D6E7F /* SFTPDropTargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5F607182A3B4C5D6E7F80 /* SFTPDropTargetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +175,8 @@
 		C5D5B5F84BC94B04B9A3E979 /* SFTPBreadcrumbBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFTPBreadcrumbBar.swift; sourceTree = "<group>"; };
 		61AC903BFA8A41D7B67BB6DF /* SFTPFileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFTPFileListView.swift; sourceTree = "<group>"; };
 		4C372A1A5CFA48BDB385165A /* SFTPFileRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFTPFileRowView.swift; sourceTree = "<group>"; };
+		B2C3D4E5F607182A3B4C5D6E /* SFTPTransferFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFTPTransferFooter.swift; sourceTree = "<group>"; };
+		D4E5F607182A3B4C5D6E7F80 /* SFTPDropTargetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFTPDropTargetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,6 +423,8 @@
 				C5D5B5F84BC94B04B9A3E979 /* SFTPBreadcrumbBar.swift */,
 				61AC903BFA8A41D7B67BB6DF /* SFTPFileListView.swift */,
 				4C372A1A5CFA48BDB385165A /* SFTPFileRowView.swift */,
+				B2C3D4E5F607182A3B4C5D6E /* SFTPTransferFooter.swift */,
+				D4E5F607182A3B4C5D6E7F80 /* SFTPDropTargetView.swift */,
 			);
 			path = SFTP;
 			sourceTree = "<group>";
@@ -600,6 +606,8 @@
 				1D04846F89E149DD853A8B25 /* SFTPBreadcrumbBar.swift in Sources */,
 				60356AEA80F0416BB6FF8C13 /* SFTPFileListView.swift in Sources */,
 				5FDC069CC23A402FA41FA7CE /* SFTPFileRowView.swift in Sources */,
+				A1B2C3D4E5F60718293A4B5C /* SFTPTransferFooter.swift in Sources */,
+				C3D4E5F607182A3B4C5D6E7F /* SFTPDropTargetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
